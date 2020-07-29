@@ -5,11 +5,12 @@ type CardModel @model {
   brand: String!
   lastOpen: String
   backgroundColor: String!
+  secureFields: [SecureFieldModel]! @connection(name: "SecureFieldsCard")
 }
 
 type SecureFieldModel @model {
   id: ID!
   title: String!
   value: String!
-  cardId: String!
+  card: CardModel! @connection(name: "SecureFieldsCard")
 }

@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Second-Wallet
-//
-//  Created by Miguel Teixeira on 29/07/2020.
-//
-
 import SwiftUI
 
 struct HomeView: View {

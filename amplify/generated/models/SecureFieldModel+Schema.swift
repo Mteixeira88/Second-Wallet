@@ -8,7 +8,7 @@ extension SecureFieldModel {
     case id
     case title
     case value
-    case cardId
+    case card
   }
   
   public static let keys = CodingKeys.self
@@ -23,7 +23,7 @@ extension SecureFieldModel {
       .id(),
       .field(secureFieldModel.title, is: .required, ofType: .string),
       .field(secureFieldModel.value, is: .required, ofType: .string),
-      .field(secureFieldModel.cardId, is: .required, ofType: .string)
+      .belongsTo(secureFieldModel.card, is: .required, ofType: CardModel.self, targetName: "secureFieldModelCardId")
     )
     }
 }

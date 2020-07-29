@@ -1,10 +1,3 @@
-//
-//  Second_WalletApp.swift
-//  Second-Wallet
-//
-//  Created by Miguel Teixeira on 29/07/2020.
-//
-
 import SwiftUI
 import Amplify
 import AmplifyPlugins

@@ -11,6 +11,7 @@ extension CardModel {
     case brand
     case lastOpen
     case backgroundColor
+    case secureFields
   }
   
   public static let keys = CodingKeys.self
@@ -27,7 +28,8 @@ extension CardModel {
       .field(cardModel.tag, is: .required, ofType: .string),
       .field(cardModel.brand, is: .required, ofType: .string),
       .field(cardModel.lastOpen, is: .optional, ofType: .string),
-      .field(cardModel.backgroundColor, is: .required, ofType: .string)
+      .field(cardModel.backgroundColor, is: .required, ofType: .string),
+      .hasMany(cardModel.secureFields, is: .optional, ofType: SecureFieldModel.self, associatedWith: SecureFieldModel.keys.card)
     )
     }
 }

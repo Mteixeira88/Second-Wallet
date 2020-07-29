@@ -3,16 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		027524D2D33945528EF9378D /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F15E1A35F34C60BED9A2F4 /* AmplifyModels.swift */; };
+		1A8CA31C14E6D2FEEE4CE63D /* Pods_Second_Wallet_Second_WalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5EDD035D03664AF3E493729 /* Pods_Second_Wallet_Second_WalletUITests.framework */; };
+		25FDCB59209A36E558665163 /* Pods_Second_WalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081AF1E605270C6DDF707486 /* Pods_Second_WalletTests.framework */; };
 		27C886A824D19A5B000AD21A /* Second_WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A724D19A5B000AD21A /* Second_WalletApp.swift */; };
-		27C886AA24D19A5B000AD21A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A924D19A5B000AD21A /* ContentView.swift */; };
+		27C886AA24D19A5B000AD21A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A924D19A5B000AD21A /* HomeView.swift */; };
 		27C886AC24D19A5C000AD21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C886AB24D19A5C000AD21A /* Assets.xcassets */; };
 		27C886AF24D19A5C000AD21A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C886AE24D19A5C000AD21A /* Preview Assets.xcassets */; };
 		27C886BA24D19A5C000AD21A /* Second_WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886B924D19A5C000AD21A /* Second_WalletTests.swift */; };
 		27C886C524D19A5C000AD21A /* Second_WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886C424D19A5C000AD21A /* Second_WalletUITests.swift */; };
+		27C886DA24D19E87000AD21A /* CardModel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886D924D19E87000AD21A /* CardModel+Ext.swift */; };
+		27C886DC24D19F4C000AD21A /* SecureFieldModel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886DB24D19F4C000AD21A /* SecureFieldModel+Ext.swift */; };
+		4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */; };
+		65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */; };
+		96F36B9DF7A54205B7705441 /* SecureFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */; };
+		AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */; };
+		C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */; };
+		F35BA1BBBBF643F1AB8EB70F /* CardModel+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D503985F6C94BF8AC5E8E58 /* CardModel+Schema.swift */; };
+		F5F8889B7A344408AA44487A /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC71086054E169F8389E9 /* CardModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SecureFieldModel.swift; path = amplify/generated/models/SecureFieldModel.swift; sourceTree = "<group>"; };
+		081AF1E605270C6DDF707486 /* Pods_Second_WalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_WalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
+		09F15E1A35F34C60BED9A2F4 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
+		1BFEA07057E547069E8BA5B8 /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
 		27C886A424D19A5B000AD21A /* Second-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Second-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C886A724D19A5B000AD21A /* Second_WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second_WalletApp.swift; sourceTree = "<group>"; };
-		27C886A924D19A5B000AD21A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		27C886A924D19A5B000AD21A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		27C886AB24D19A5C000AD21A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27C886AE24D19A5C000AD21A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27C886B024D19A5C000AD21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +62,21 @@
 		27C886C024D19A5C000AD21A /* Second-WalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Second-WalletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C886C424D19A5C000AD21A /* Second_WalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second_WalletUITests.swift; sourceTree = "<group>"; };
 		27C886C624D19A5C000AD21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27C886D924D19E87000AD21A /* CardModel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardModel+Ext.swift"; sourceTree = "<group>"; };
+		27C886DB24D19F4C000AD21A /* SecureFieldModel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureFieldModel+Ext.swift"; sourceTree = "<group>"; };
+		2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet.release.xcconfig"; path = "Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet.release.xcconfig"; sourceTree = "<group>"; };
+		3D503985F6C94BF8AC5E8E58 /* CardModel+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "CardModel+Schema.swift"; path = "amplify/generated/models/CardModel+Schema.swift"; sourceTree = "<group>"; };
+		3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-WalletTests.release.xcconfig"; path = "Target Support Files/Pods-Second-WalletTests/Pods-Second-WalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F9DC71086054E169F8389E9 /* CardModel.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = amplify/generated/models/CardModel.swift; sourceTree = "<group>"; };
+		70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		775754179ED14C73BBC4721C /* schema.graphql */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/amplifyDatasource/schema.graphql; sourceTree = "<group>"; };
+		8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet-Second-WalletUITests.release.xcconfig"; path = "Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A2BF34F140AA6CC406BF1B10 /* Pods-Second-WalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-WalletTests.debug.xcconfig"; path = "Target Support Files/Pods-Second-WalletTests/Pods-Second-WalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5EDD035D03664AF3E493729 /* Pods_Second_Wallet_Second_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_Wallet_Second_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
+		C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "SecureFieldModel+Schema.swift"; path = "amplify/generated/models/SecureFieldModel+Schema.swift"; sourceTree = "<group>"; };
+		E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FDCB59209A36E558665163 /* Pods_Second_WalletTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,19 +100,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8CA31C14E6D2FEEE4CE63D /* Pods_Second_Wallet_Second_WalletUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09792A24C232453D8F1D9A95 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				1BFEA07057E547069E8BA5B8 /* amplifytools.xcconfig */,
+				E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */,
+				C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */,
+				775754179ED14C73BBC4721C /* schema.graphql */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
 		27C8869B24D19A5B000AD21A = {
 			isa = PBXGroup;
 			children = (
+				8B4DE6B8F2554A419835946B /* AmplifyModels */,
+				09792A24C232453D8F1D9A95 /* AmplifyConfig */,
 				27C886A624D19A5B000AD21A /* Second-Wallet */,
 				27C886B824D19A5C000AD21A /* Second-WalletTests */,
 				27C886C324D19A5C000AD21A /* Second-WalletUITests */,
 				27C886A524D19A5B000AD21A /* Products */,
+				6B851F9A1D8A2E33BD72EF57 /* Pods */,
+				5CB1DE0648A923F1AC962D01 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,10 +146,10 @@
 		27C886A624D19A5B000AD21A /* Second-Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				27C886A724D19A5B000AD21A /* Second_WalletApp.swift */,
-				27C886A924D19A5B000AD21A /* ContentView.swift */,
-				27C886AB24D19A5C000AD21A /* Assets.xcassets */,
-				27C886B024D19A5C000AD21A /* Info.plist */,
+				27C886D624D19CD7000AD21A /* Models+Ext */,
+				27C886D524D19CD1000AD21A /* ViewModels */,
+				27C886D424D19CC3000AD21A /* Support */,
+				27C886D324D19CBC000AD21A /* Views */,
 				27C886AD24D19A5C000AD21A /* Preview Content */,
 			);
 			path = "Second-Wallet";
@@ -130,6 +181,84 @@
 			path = "Second-WalletUITests";
 			sourceTree = "<group>";
 		};
+		27C886D324D19CBC000AD21A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27C886D824D19CE6000AD21A /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27C886D424D19CC3000AD21A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				27C886A724D19A5B000AD21A /* Second_WalletApp.swift */,
+				27C886AB24D19A5C000AD21A /* Assets.xcassets */,
+				27C886B024D19A5C000AD21A /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		27C886D524D19CD1000AD21A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		27C886D624D19CD7000AD21A /* Models+Ext */ = {
+			isa = PBXGroup;
+			children = (
+				27C886D924D19E87000AD21A /* CardModel+Ext.swift */,
+				27C886DB24D19F4C000AD21A /* SecureFieldModel+Ext.swift */,
+			);
+			path = "Models+Ext";
+			sourceTree = "<group>";
+		};
+		27C886D824D19CE6000AD21A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				27C886A924D19A5B000AD21A /* HomeView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		5CB1DE0648A923F1AC962D01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */,
+				A5EDD035D03664AF3E493729 /* Pods_Second_Wallet_Second_WalletUITests.framework */,
+				081AF1E605270C6DDF707486 /* Pods_Second_WalletTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B851F9A1D8A2E33BD72EF57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */,
+				2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */,
+				4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */,
+				8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */,
+				A2BF34F140AA6CC406BF1B10 /* Pods-Second-WalletTests.debug.xcconfig */,
+				3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8B4DE6B8F2554A419835946B /* AmplifyModels */ = {
+			isa = PBXGroup;
+			children = (
+				09F15E1A35F34C60BED9A2F4 /* AmplifyModels.swift */,
+				5F9DC71086054E169F8389E9 /* CardModel.swift */,
+				3D503985F6C94BF8AC5E8E58 /* CardModel+Schema.swift */,
+				08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */,
+				C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */,
+			);
+			name = AmplifyModels;
+			path = .;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C886C924D19A5C000AD21A /* Build configuration list for PBXNativeTarget "Second-Wallet" */;
 			buildPhases = (
+				16E727383AE4506444C90ACD /* [CP] Check Pods Manifest.lock */,
 				27C886A024D19A5B000AD21A /* Sources */,
+				27C886D224D19AB1000AD21A /* Run Amplify Tools */,
 				27C886A124D19A5B000AD21A /* Frameworks */,
 				27C886A224D19A5B000AD21A /* Resources */,
+				6EC1E470A606661992109BF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +286,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C886CC24D19A5C000AD21A /* Build configuration list for PBXNativeTarget "Second-WalletTests" */;
 			buildPhases = (
+				9EC354A57B2ABFAF65339EAA /* [CP] Check Pods Manifest.lock */,
 				27C886B124D19A5C000AD21A /* Sources */,
 				27C886B224D19A5C000AD21A /* Frameworks */,
 				27C886B324D19A5C000AD21A /* Resources */,
@@ -172,9 +305,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C886CF24D19A5C000AD21A /* Build configuration list for PBXNativeTarget "Second-WalletUITests" */;
 			buildPhases = (
+				17CAE468E386F028A105A94A /* [CP] Check Pods Manifest.lock */,
 				27C886BC24D19A5C000AD21A /* Sources */,
 				27C886BD24D19A5C000AD21A /* Frameworks */,
 				27C886BE24D19A5C000AD21A /* Resources */,
+				0F1E228AE91EA3C30F011529 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,6 +370,8 @@
 			files = (
 				27C886AF24D19A5C000AD21A /* Preview Assets.xcassets in Resources */,
 				27C886AC24D19A5C000AD21A /* Assets.xcassets in Resources */,
+				AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */,
+				C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +391,141 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F1E228AE91EA3C30F011529 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16E727383AE4506444C90ACD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Second-Wallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17CAE468E386F028A105A94A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Second-Wallet-Second-WalletUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27C886D224D19AB1000AD21A /* Run Amplify Tools */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Amplify Tools";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/AmplifyTools/amplify-tools.sh\"\n";
+		};
+		6EC1E470A606661992109BF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EC354A57B2ABFAF65339EAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Second-WalletTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27C886A024D19A5B000AD21A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27C886AA24D19A5B000AD21A /* ContentView.swift in Sources */,
+				27C886AA24D19A5B000AD21A /* HomeView.swift in Sources */,
 				27C886A824D19A5B000AD21A /* Second_WalletApp.swift in Sources */,
+				27C886DC24D19F4C000AD21A /* SecureFieldModel+Ext.swift in Sources */,
+				027524D2D33945528EF9378D /* AmplifyModels.swift in Sources */,
+				F5F8889B7A344408AA44487A /* CardModel.swift in Sources */,
+				F35BA1BBBBF643F1AB8EB70F /* CardModel+Schema.swift in Sources */,
+				27C886DA24D19E87000AD21A /* CardModel+Ext.swift in Sources */,
+				96F36B9DF7A54205B7705441 /* SecureFieldModel.swift in Sources */,
+				4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +679,7 @@
 		};
 		27C886CA24D19A5C000AD21A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -436,6 +702,7 @@
 		};
 		27C886CB24D19A5C000AD21A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -458,6 +725,7 @@
 		};
 		27C886CD24D19A5C000AD21A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2BF34F140AA6CC406BF1B10 /* Pods-Second-WalletTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -480,6 +748,7 @@
 		};
 		27C886CE24D19A5C000AD21A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +771,7 @@
 		};
 		27C886D024D19A5C000AD21A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +792,7 @@
 		};
 		27C886D124D19A5C000AD21A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

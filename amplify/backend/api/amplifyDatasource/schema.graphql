@@ -1,0 +1,15 @@
+type CardModel @model {
+  id: ID!
+  digits: Int
+  tag: String!
+  brand: String!
+  lastOpen: String
+  backgroundColor: String!
+}
+
+type SecureFieldModel @model {
+  id: ID!
+  title: String!
+  value: String!
+  cardId: String!
+}

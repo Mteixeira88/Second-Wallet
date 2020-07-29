@@ -23,7 +23,7 @@ extension SecureFieldModel {
       .id(),
       .field(secureFieldModel.title, is: .required, ofType: .string),
       .field(secureFieldModel.value, is: .required, ofType: .string),
-      .belongsTo(secureFieldModel.card, is: .required, ofType: CardModel.self, targetName: "secureFieldModelCardId")
+      .belongsTo(secureFieldModel.card, is: .optional, ofType: CardModel.self, targetName: "secureFieldModelCardId")
     )
     }
 }

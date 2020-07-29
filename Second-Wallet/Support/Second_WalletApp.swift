@@ -5,13 +5,15 @@ import AmplifyPlugins
 @main
 struct Second_WalletApp: App {
     
+    @StateObject private var cardViewModel = CardsListViewModel()
+    
     init() {
         configureAmplify()
     }
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(viewModel: cardViewModel)
         }
     }
     

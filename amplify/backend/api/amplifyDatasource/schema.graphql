@@ -1,16 +1,16 @@
 type CardModel @model {
   id: ID!
-  digits: Int
+  digits: String
   tag: String!
   brand: String!
   lastOpen: String
   backgroundColor: String!
-  secureFields: [SecureFieldModel]! @connection(name: "SecureFieldsCard")
+  secureFields: [SecureFieldModel] @connection(name: "SecureFieldsCard")
 }
 
 type SecureFieldModel @model {
   id: ID!
   title: String!
   value: String!
-  card: CardModel! @connection(name: "SecureFieldsCard")
+  card: CardModel @connection(name: "SecureFieldsCard")
 }

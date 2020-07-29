@@ -24,7 +24,7 @@ extension CardModel {
     
     model.fields(
       .id(),
-      .field(cardModel.digits, is: .optional, ofType: .int),
+      .field(cardModel.digits, is: .optional, ofType: .string),
       .field(cardModel.tag, is: .required, ofType: .string),
       .field(cardModel.brand, is: .required, ofType: .string),
       .field(cardModel.lastOpen, is: .optional, ofType: .string),

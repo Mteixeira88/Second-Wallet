@@ -38,7 +38,7 @@ struct CardView: View {
         }
         .background(Color(viewModel.backgroundColor))
         .cornerRadius(8)
-        .shadow(radius: 5)
+        .shadow(color: Color(UIColor.systemGray), radius: 5)
     }
 }
 

@@ -21,7 +21,8 @@ class CardsListViewModel: ObservableObject {
                 fatalError("Unable To Create")
             }
             secureFields.forEach { (secureField) in
-                Amplify.DataStore.save(secureField) { (result) in
+                let saveSecureField = SecureFieldModel(title: secureField.title, value: secureField.value, card: card)
+                Amplify.DataStore.save(saveSecureField) { (result) in
                     switch result {
                     case .success:
                         self?.cards.append(card)

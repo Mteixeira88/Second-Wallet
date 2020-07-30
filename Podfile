@@ -9,6 +9,8 @@ target 'Second-Wallet' do
   use_frameworks!
 
   # Pods for Second-Wallet
+
+  #Amplify
   pod 'Amplify'
   pod 'Amplify/Tools'
   pod 'AmplifyPlugins/AWSDataStorePlugin'

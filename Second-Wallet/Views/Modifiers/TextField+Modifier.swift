@@ -26,7 +26,8 @@ struct TextFieldModifier: ViewModifier {
                 .background(error.showError ? Color(UIColor.red) : Color(UIColor.systemGray6))
                 .cornerRadius(8)
             if  let model = model,
-                let bottomLabel = model.bottomLabel {
+                let bottomLabel = model.bottomLabel,
+                !error.showError {
                 Text(bottomLabel)
                     .font(.caption)
                     .foregroundColor(Color(UIColor.systemGray3))

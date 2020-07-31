@@ -5,6 +5,7 @@ struct CardViewModel {
     
     init(card: CardModel) {
         self.card = card
+        print(card)
     }
 }
 

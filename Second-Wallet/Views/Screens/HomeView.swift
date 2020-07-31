@@ -6,9 +6,8 @@ struct HomeView: View {
     
     var body: some View {
         if viewModel.cards.isEmpty {
-//            NewCardFormView()
             VStack {
-                AddNewCard()
+                AddNewCard(viewModel: viewModel)
             }
         } else {
             VStack {
@@ -16,12 +15,12 @@ struct HomeView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    AddNewCard()
-//                    Button("\(Image(systemName: "plus")) Add new card", action: {
-//                        viewModel.cards.forEach { (card) in
-//                            viewModel.deleteCard(card)
-//                        }
-//                    })
+                    AddNewCard(viewModel: viewModel)
+                    Button("\(Image(systemName: "plus")) Delete cards test", action: {
+                        viewModel.cards.forEach { (card) in
+                            viewModel.deleteCard(card)
+                        }
+                    })
                 }
                 .padding()
             }

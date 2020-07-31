@@ -1,50 +1,18 @@
 import SwiftUI
 
-struct NewCardFormModel {
-    var digitsIsEnable: Bool
-    var digits: String
-    var errorDigits: Bool
-    var tag: String
-    var errorTag: Bool
-    var brand: String
-    var errorBrand: Bool
-    var secureFields: [SecureFieldsViewModel]
-    
-}
-
-struct SecureFieldsViewModel {
-    var title: String
-    var value: String
-    var error: Bool
-}
-
 struct NewCardFormView: View {
-    @State private(set) var newCardForm = NewCardFormModel(
-        digitsIsEnable: true,
-        digits: "",
-        errorDigits: false,
-        tag: "",
-        errorTag: false,
-        brand: "",
-        errorBrand: false,
-        secureFields: [SecureFieldsViewModel(title: "", value: "", error: false)]
-    )
-    var baseSecureField = SecureFieldsViewModel(title: "", value: "", error: false)
-    
-    @Environment(\.presentationMode) var presentationMode
-    
-    @State var color = Color.white
+    @ObservedObject var viewModel: NewCardViewModel
     
     var body: some View {
         ScrollView() {
             VStack(alignment: .leading) {
                 Text("Create card")
-                    .font(.largeTitle)
+                    .font(.title)
                     .fontWeight(.semibold)
             }
             .padding()
             
-            Toggle(isOn: $newCardForm.digitsIsEnable) {
+            Toggle(isOn: $viewModel.formModel.digitsIsEnable) {
                 Text("Four digits")
                     .font(.body)
             }
@@ -52,67 +20,94 @@ struct NewCardFormView: View {
             
             TextField(
                 "eg: Last 4 digits",
-                text: $newCardForm.digits,
-                onEditingChanged: {_ in
-                    self.newCardForm.errorDigits = false
+                text: $viewModel.formModel.digits,
+                onEditingChanged: { changed in
+                    self.viewModel.formModel.errorDigits = false
                 })
-                .disabled(!newCardForm.digitsIsEnable)
+                .disabled(!viewModel.formModel.digitsIsEnable)
                 .textField(
-                    error: TextFieldErrorModifierModel(showError: $newCardForm.errorDigits, message: "Error")
+                    error: TextFieldErrorModifierModel(showError: $viewModel.formModel.errorDigits, message: "Error")
                 )
                 .padding(.horizontal)
-                .opacity(newCardForm.digitsIsEnable ? 1 : 0.5)
+                .opacity(viewModel.formModel.digitsIsEnable ? 1 : 0.5)
             
             TextField(
                 "eg: Mobile, Door duplication card, Debit",
-                text: $newCardForm.tag,
+                text: $viewModel.formModel.tag,
                 onEditingChanged: { _ in
-                    self.newCardForm.errorTag = false
+                    self.viewModel.formModel.errorTag = false
                 })
                 .textField(
-                    model: TextFieldModifierModel(label: "Tag", bottomLabel: "max: 30 chars"),
-                    error: TextFieldErrorModifierModel(showError: $newCardForm.errorTag, message: "Error")
+                    model: TextFieldModifierModel(
+                        label: "Tag",
+                        bottomLabel: "max: 30 chars"
+                    ),
+                    error: TextFieldErrorModifierModel(
+                        showError: $viewModel.formModel.errorTag,
+                        message: "Error"
+                    )
                 )
                 .padding()
             
             TextField(
                 "eg: Vodafone, American Express, Dierre",
-                text: $newCardForm.brand,
+                text: $viewModel.formModel.brand,
                 onEditingChanged: { _ in
-                    self.newCardForm.errorBrand = false
+                    self.viewModel.formModel.errorBrand = false
                 })
                 .textField(
-                    model: TextFieldModifierModel(label: "Brand", bottomLabel: "max: 20 chars"),
-                    error: TextFieldErrorModifierModel(showError: $newCardForm.errorBrand, message: "Error")
+                    model: TextFieldModifierModel(
+                        label: "Brand",
+                        bottomLabel: "max: 20 chars"
+                    ),
+                    error: TextFieldErrorModifierModel(
+                        showError: $viewModel.formModel.errorBrand,
+                        message: "Error"
+                    )
                 )
                 .padding()
             
-            VStack(alignment: .leading) {
-                Text("Background color")
-                    .font(.body)
-                ColorPickerView(chosenColor: $color)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
-                    .rotationEffect(.degrees(-90))
+            HStack() {
+                VStack(alignment: .leading) {
+                    Text("Background color")
+                        .font(.body)
+                    ColorPickerView(chosenColor: $viewModel.formModel.backgroundColor)
+                        .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 50)
+                        .rotationEffect(.degrees(-90))
+                }
+                Spacer()
             }
             .padding()
             
-            ForEach(0..<newCardForm.secureFields.count, id: \.self) { index in
+            ForEach(0..<viewModel.formModel.secureFields.count, id: \.self) { index in
                 VStack(spacing: 0) {
                     TextField(
                         "eg: System Pin, Pin, Puk",
-                        text: $newCardForm.secureFields[index].title,
+                        text: $viewModel.formModel.secureFields[index].title,
                         onEditingChanged: { _ in
-                            self.newCardForm.secureFields[index].error = false
+                            self.viewModel.formModel.secureFields[index].error = false
                         })
                         .textField(
-                            model: TextFieldModifierModel(label: "#\(index + 1) Secure Field title", bottomLabel: nil),
-                            error: TextFieldErrorModifierModel(showError: $newCardForm.secureFields[index].error, message: "Error")
+                            model: TextFieldModifierModel(
+                                label: "#\(index + 1) Secure Field title",
+                                bottomLabel: nil
+                            ),
+                            error: TextFieldErrorModifierModel(
+                                showError: $viewModel.formModel.secureFields[index].error,
+                                message: "Error"
+                            )
                         )
                         .padding()
-                    SecureField("eg: 15121", text:  $newCardForm.secureFields[index].value)
+                    SecureField("eg: 15121", text:  $viewModel.formModel.secureFields[index].value)
                         .textField(
-                            model: TextFieldModifierModel(label: "#\(index + 1) Secure Field value", bottomLabel: nil),
-                            error: TextFieldErrorModifierModel(showError: $newCardForm.secureFields[index].error, message: "Error")
+                            model: TextFieldModifierModel(
+                                label: "#\(index + 1) Secure Field value",
+                                bottomLabel: nil
+                            ),
+                            error: TextFieldErrorModifierModel(
+                                showError: $viewModel.formModel.secureFields[index].error,
+                                message: "Error"
+                            )
                         )
                         .padding(.horizontal)
                 }
@@ -121,27 +116,16 @@ struct NewCardFormView: View {
             HStack {
                 Spacer()
                 Button("\(Image(systemName: "plus")) Add secure field", action: {
-                    newCardForm.secureFields.append(baseSecureField)
+                    viewModel.formModel.secureFields.append(SecureFieldsViewModel())
                 })
             }
             .padding()
         }
-        
-        HStack(spacing: 20) {
-            Spacer()
-            Button("Cancel", action: {
-                presentationMode.wrappedValue.dismiss()
-            })
-            Button("Confirm", action: {
-                newCardForm.errorDigits = true
-            })
-        }
-        .padding()
     }
 }
 
 struct NewCardFormView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCardFormView()
+        NewCardFormView(viewModel: NewCardViewModel())
     }
 }

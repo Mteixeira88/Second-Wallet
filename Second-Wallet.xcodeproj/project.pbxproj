@@ -30,6 +30,7 @@
 		27D0469824D3093A0085E8FF /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0469724D3093A0085E8FF /* View+Ext.swift */; };
 		27D0469A24D31D190085E8FF /* AddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0469924D31D190085E8FF /* AddNewCard.swift */; };
 		27D0469C24D325E00085E8FF /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0469B24D325E00085E8FF /* ColorPicker.swift */; };
+		27D046A024D365F50085E8FF /* NewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0469F24D365F50085E8FF /* NewCardViewModel.swift */; };
 		4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */; };
 		65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */; };
 		96F36B9DF7A54205B7705441 /* SecureFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */; };
@@ -88,6 +89,7 @@
 		27D0469724D3093A0085E8FF /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		27D0469924D31D190085E8FF /* AddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCard.swift; sourceTree = "<group>"; };
 		27D0469B24D325E00085E8FF /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		27D0469F24D365F50085E8FF /* NewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewModel.swift; sourceTree = "<group>"; };
 		2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet.release.xcconfig"; path = "Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet.release.xcconfig"; sourceTree = "<group>"; };
 		3D503985F6C94BF8AC5E8E58 /* CardModel+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "CardModel+Schema.swift"; path = "amplify/generated/models/CardModel+Schema.swift"; sourceTree = "<group>"; };
 		3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-WalletTests.release.xcconfig"; path = "Target Support Files/Pods-Second-WalletTests/Pods-Second-WalletTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				27C886E224D1B8C9000AD21A /* CardsListViewModel.swift */,
 				27C886EC24D1E5A2000AD21A /* CardViewModel.swift */,
+				27D0469F24D365F50085E8FF /* NewCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */,
 				27D0469124D2FCE10085E8FF /* CardListView.swift in Sources */,
 				27C886ED24D1E5A2000AD21A /* CardViewModel.swift in Sources */,
+				27D046A024D365F50085E8FF /* NewCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

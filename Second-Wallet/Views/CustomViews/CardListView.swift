@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct CardListView: View {
-    private(set) var adaptiveLayout = [GridItem(.adaptive(minimum: 250))]
+    private(set) var adaptiveLayout = [GridItem(.adaptive(minimum: 300))]
     var viewModel: CardsListViewModel
+    @State var flipped = false
     
     var body: some View {
         ScrollView {

@@ -20,6 +20,8 @@ class CardsListViewModel: ObservableObject {
             if result != nil {
                 fatalError("Unable To Create")
             }
+            let defaultPosition = 0
+            self?.cards.insert(card, at: defaultPosition)
             
             secureFields.enumerated().forEach { (index, secureField) in
                 let saveSecureField = SecureFieldModel(
@@ -30,8 +32,8 @@ class CardsListViewModel: ObservableObject {
                 Amplify.DataStore.save(saveSecureField) { (result) in
                     switch result {
                     case .success:
-                        if index == 0 {
-                            self?.cards.insert(card, at: 0)
+                        if index == secureFields.count - 1 {
+                            self?.cards[defaultPosition].secureFields = List(secureFields)
                         }
                     case .failure(let error):
                         fatalError("Failed saving Secure Field \(error)")
@@ -55,8 +57,23 @@ class CardsListViewModel: ObservableObject {
 
 // Preview purposes
 let cardsPreview = [
-    CardModel(id: UUID().uuidString, digits: "123", tag: "Banco", brand: "Bankinter", backgroundColor: "whiteColor"),
-    CardModel(id: UUID().uuidString, tag: "Telefone", brand: "Vodafone", backgroundColor: "whiteColor"),
-    CardModel(id: UUID().uuidString, tag: "House codes", brand: "Dierre", backgroundColor: "whiteColor")
+    CardModel(id: UUID().uuidString, digits: "123", tag: "Banco", brand: "Bankinter", backgroundColor: "whiteColor",
+              secureFields: [
+                  SecureFieldModel(title: "I'm a title", value: "123123"),
+                  SecureFieldModel(title: "I'm a title 2", value: "3333"),
+                  SecureFieldModel(title: "I'm a title 3", value: "44444")
+              ]),
+    CardModel(id: UUID().uuidString, tag: "Telefone", brand: "Vodafone", backgroundColor: "whiteColor",
+              secureFields: [
+                  SecureFieldModel(title: "I'm a title", value: "123123"),
+                  SecureFieldModel(title: "I'm a title 2", value: "3333"),
+                  SecureFieldModel(title: "I'm a title 3", value: "44444")
+              ]),
+    CardModel(id: UUID().uuidString, tag: "House codes", brand: "Dierre", backgroundColor: "whiteColor",
+              secureFields: [
+                  SecureFieldModel(title: "I'm a title", value: "123123"),
+                  SecureFieldModel(title: "I'm a title 2", value: "3333"),
+                  SecureFieldModel(title: "I'm a title 3", value: "44444")
+              ])
 ]
 let testViewModel = CardsListViewModel(cards: cardsPreview)

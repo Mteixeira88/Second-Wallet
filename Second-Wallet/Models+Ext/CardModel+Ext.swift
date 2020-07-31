@@ -1,7 +1,7 @@
 import Foundation
 
 extension CardModel: Identifiable, Equatable, Hashable {
-    public static func == (lhs: CardModel, rhs: CardModel) -> Bool {
+    public static func ==(lhs: CardModel, rhs: CardModel) -> Bool {
         lhs.id == rhs.id
             && lhs.brand == rhs.brand
             && lhs.backgroundColor == rhs.backgroundColor

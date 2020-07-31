@@ -26,7 +26,10 @@ struct NewCardFormView: View {
                 })
                 .disabled(!viewModel.formModel.digitsIsEnable)
                 .textField(
-                    error: TextFieldErrorModifierModel(showError: $viewModel.formModel.errorDigits, message: "Error")
+                    error: TextFieldErrorModifierModel(
+                        showError: $viewModel.formModel.errorDigits,
+                        message: "Error"
+                    )
                 )
                 .padding(.horizontal)
                 .opacity(viewModel.formModel.digitsIsEnable ? 1 : 0.5)

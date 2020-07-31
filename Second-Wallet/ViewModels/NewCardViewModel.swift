@@ -67,7 +67,7 @@ class NewCardViewModel: ObservableObject {
         resetErrors()
         if formModel.digitsIsEnable,
            (formModel.digits.trimmingCharacters(in: .whitespaces).isEmpty ||
-        formModel.digits.trimmingCharacters(in: .whitespaces).count > 4) {
+        formModel.digits.trimmingCharacters(in: .whitespaces).count != 4) {
             formModel.errorDigits = true
         }
         

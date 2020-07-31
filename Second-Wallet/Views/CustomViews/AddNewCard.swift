@@ -25,7 +25,10 @@ struct AddNewCard: View {
                         if !newCardViewModel.validateForm() {
                             return
                         }
-                        viewModel.createNew(card: newCardViewModel.createCard(), secureFields: newCardViewModel.createSecureFieds())
+                        viewModel.createNew(
+                            card: newCardViewModel.createCard(),
+                            secureFields: newCardViewModel.createSecureFieds()
+                        )
                         showNewCard.toggle()
                     })
                 }

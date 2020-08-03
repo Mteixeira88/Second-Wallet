@@ -11,8 +11,8 @@ struct CardDetails: View {
     var body: some View {
         VStack(spacing: 30) {
             HStack(alignment: .bottom) {
-                Image(systemName: "gobackward")
-                    .foregroundColor(viewModel.backgroundColor.isDarkColor)
+//                Image(systemName: "gobackward")
+//                    .foregroundColor(viewModel.backgroundColor.isDarkColor)
                 Text("\(countdown) sec")
                     .flipsForRightToLeftLayoutDirection(true)
                     .foregroundColor(viewModel.backgroundColor.isDarkColor)
@@ -22,9 +22,15 @@ struct CardDetails: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 20, height: 20)
                     .foregroundColor(viewModel.backgroundColor.isDarkColor)
-                    .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
-                        showSecureFields.toggle()
-                    })
+                    .onTapGesture {
+                        if !showSecureFields {
+                            viewModel.checkBiometric { (result) in
+                                showSecureFields = result
+                            }
+                        } else {
+                            showSecureFields = false
+                        }
+                    }
             }
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, alignment: .center, spacing: 20) {

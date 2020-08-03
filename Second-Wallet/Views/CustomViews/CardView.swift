@@ -4,7 +4,7 @@ import UIKit
 struct CardView: View {
     var viewModel: CardViewModel
     @State var flipped = false
-    @State var countdown = 300
+    @State var countdown = 180
     
     @State var timer: Timer?
     
@@ -34,9 +34,14 @@ struct CardView: View {
                 timer!.invalidate()
             }
             if flipped {
-                countdown = 300
+                countdown = 180
                 timeout()
             }
+        }
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: UIApplication.didEnterBackgroundNotification)) { _ in
+            flipped = false
         }
     }
     
@@ -49,14 +54,6 @@ struct CardView: View {
                 flipped = false
             }
         }
-            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            if countdown == 0 {
-//                flipped = false
-//            }
-//            countdown -= 1
-//            timeout()
-//        }
     }
 }
 

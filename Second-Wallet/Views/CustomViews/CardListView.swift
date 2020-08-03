@@ -17,6 +17,7 @@ struct CardListView: View {
             }
             .padding()
         }
+        .padding(.top, 24)
     }
 }
 

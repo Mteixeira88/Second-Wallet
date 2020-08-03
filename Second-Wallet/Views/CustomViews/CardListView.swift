@@ -7,7 +7,7 @@ struct CardListView: View {
     
     var body: some View {
         ScrollView {
-            Text("Tap a card for settings")
+            Text("Tap a card for details")
                 .font(.body)
                 .foregroundColor(Color(UIColor.systemGray2))
             LazyVGrid(columns: adaptiveLayout, spacing: 20) {

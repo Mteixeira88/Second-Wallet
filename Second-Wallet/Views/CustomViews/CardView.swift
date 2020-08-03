@@ -1,45 +1,26 @@
 import SwiftUI
+import UIKit
 
 struct CardView: View {
     var viewModel: CardViewModel
     @State var flipped = false
+    @State var countdown = 300
+    
+    @State var timer: Timer?
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 20) {
                 if flipped {
-                    CardDetails(viewModel: CardDetailViewModel(card: viewModel.card))
+                    CardDetails(viewModel: CardDetailViewModel(card: viewModel.card), countdown: $countdown)
                         .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
                 } else {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(viewModel.firstTitle)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(viewModel.backgroundColor.isDarkColor ? Color.white : Color.black)
-                        Text(viewModel.secondTitle.uppercased())
-                            .font(.title3)
-                            .foregroundColor(viewModel.backgroundColor.isDarkColor ? Color.white : Color.black)
-                    }
-                    
-                    Text(viewModel.thirdTitle.uppercased())
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(viewModel.backgroundColor.isDarkColor ? Color.white : Color.black)
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Text(viewModel.date)
-                            .font(.caption)
-                            .foregroundColor(viewModel.backgroundColor.isDarkColor ? Color.white : Color.black)
-                    }
+                    CardPreview(viewModel: viewModel)
                 }
                 
             }
-            .padding(.top, 32)
-            .padding(.bottom, 16)
+            .padding(.vertical, 24)
             .padding(.horizontal, 16)
-//            Spacer()
         }
         .frame(minWidth: 200, maxWidth: .infinity, minHeight: 200, maxHeight: 200)
         .background(Color(viewModel.backgroundColor))
@@ -48,11 +29,34 @@ struct CardView: View {
         .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
         .animation(.default)
         .onTapGesture {
-            // explicitly apply animation on toggle (choose either or)
-            //withAnimation {
-            self.flipped.toggle()
-            //}
+            flipped.toggle()
+            if timer != nil {
+                timer!.invalidate()
+            }
+            if flipped {
+                countdown = 300
+                timeout()
+            }
         }
+    }
+    
+    
+    func timeout() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            countdown -= 1
+            if countdown == 0 {
+                timer.invalidate()
+                flipped = false
+            }
+        }
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            if countdown == 0 {
+//                flipped = false
+//            }
+//            countdown -= 1
+//            timeout()
+//        }
     }
 }
 

@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 
 class CardDetailViewModel {
@@ -17,6 +17,15 @@ class CardDetailViewModel {
             )
         })
         self.secureFields = secureFields
+    }
+}
+
+extension CardDetailViewModel {
+    var backgroundColor: UIColor {
+        guard let card = secureFields[0].card else {
+            return .blue
+        }
+        return UIColor(hexString: card.backgroundColor) ?? .blue
     }
 }
 

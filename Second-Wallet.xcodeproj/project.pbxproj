@@ -12,6 +12,7 @@
 		25FDCB59209A36E558665163 /* Pods_Second_WalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081AF1E605270C6DDF707486 /* Pods_Second_WalletTests.framework */; };
 		271D987724D4924900722A19 /* CardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271D987624D4924900722A19 /* CardDetails.swift */; };
 		271D987924D4926200722A19 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271D987824D4926200722A19 /* CardDetailsViewModel.swift */; };
+		279CDB9924D88794000FD042 /* CardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279CDB9824D88794000FD042 /* CardPreview.swift */; };
 		27C886A824D19A5B000AD21A /* Second_WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A724D19A5B000AD21A /* Second_WalletApp.swift */; };
 		27C886AA24D19A5B000AD21A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A924D19A5B000AD21A /* HomeView.swift */; };
 		27C886AC24D19A5C000AD21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C886AB24D19A5C000AD21A /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		1BFEA07057E547069E8BA5B8 /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
 		271D987624D4924900722A19 /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
 		271D987824D4926200722A19 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
+		279CDB9824D88794000FD042 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
 		27C886A424D19A5B000AD21A /* Second-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Second-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C886A724D19A5B000AD21A /* Second_WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second_WalletApp.swift; sourceTree = "<group>"; };
 		27C886A924D19A5B000AD21A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				27D0469924D31D190085E8FF /* AddNewCard.swift */,
 				27D0469B24D325E00085E8FF /* ColorPicker.swift */,
 				271D987624D4924900722A19 /* CardDetails.swift */,
+				279CDB9824D88794000FD042 /* CardPreview.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				F5F8889B7A344408AA44487A /* CardModel.swift in Sources */,
 				F35BA1BBBBF643F1AB8EB70F /* CardModel+Schema.swift in Sources */,
 				271D987924D4926200722A19 /* CardDetailsViewModel.swift in Sources */,
+				279CDB9924D88794000FD042 /* CardPreview.swift in Sources */,
 				27C886DA24D19E87000AD21A /* CardModel+Ext.swift in Sources */,
 				27C886EB24D1DEF7000AD21A /* UIColor+Ext.swift in Sources */,
 				27C886E824D1DB51000AD21A /* CardView.swift in Sources */,

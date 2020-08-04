@@ -15,23 +15,23 @@ struct CardPreview: View {
             Text(viewModel.firstTitle)
                 .font(.title2)
                 .fontWeight(.semibold)
-                .foregroundColor(viewModel.backgroundColor.isDarkColor)
+                .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
             Text(viewModel.secondTitle.uppercased())
                 .font(.title3)
-                .foregroundColor(viewModel.backgroundColor.isDarkColor)
+                .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
         }
         
         Text(viewModel.thirdTitle.uppercased())
             .font(.title)
             .fontWeight(.bold)
-            .foregroundColor(viewModel.backgroundColor.isDarkColor)
+            .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
         
         HStack {
             Spacer()
             
             Text(viewModel.date)
                 .font(.caption)
-                .foregroundColor(viewModel.backgroundColor.isDarkColor)
+                .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
         }
     }
 }

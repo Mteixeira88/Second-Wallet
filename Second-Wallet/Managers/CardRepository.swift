@@ -55,7 +55,16 @@ class CardRepository: Repository {
         _ model: CardModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
-        // update Card
+        print(model.id)
+        Amplify.DataStore.save(model, where: CardModel.keys.id.eq(model.id)) { (result) in
+            switch result {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Failed updating todo \(error)")
+                completion(.unableToUpdate)
+            }
+        }
     }
     
     func delete(

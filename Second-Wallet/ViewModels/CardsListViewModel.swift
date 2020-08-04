@@ -20,12 +20,14 @@ class CardsListViewModel: ObservableObject {
     
     func createNew(card: CardModel, secureFields: [SecureFieldModel]) {
         CardRepository.shared.create(card) { [weak self] (result) in
+            guard let self = self else {
+                return
+            }
             if result != nil {
                 fatalError("Unable To Create")
             }
             let defaultPosition = 0
-            self?.cards.insert(card, at: defaultPosition)
-            self?.filterCard.insert(card, at: defaultPosition)
+            self.cards.insert(card, at: defaultPosition)
             
             secureFields.enumerated().forEach { (index, secureField) in
                 let saveSecureField = SecureFieldModel(
@@ -37,14 +39,61 @@ class CardsListViewModel: ObservableObject {
                     switch result {
                     case .success:
                         if index == secureFields.count - 1 {
-                            self?.cards[defaultPosition].secureFields = List(secureFields)
-                            self?.filterCard[defaultPosition].secureFields = List(secureFields)
+                            self.cards[defaultPosition].secureFields = List(secureFields)
+                            self.filterCard = self.cards
                         }
                     case .failure(let error):
                         fatalError("Failed saving Secure Field \(error)")
                     }
                 }
             }
+        }
+    }
+    
+    func update(card: CardModel, secureFields: [SecureFieldModel]) {
+        CardRepository.shared.update(card) { [weak self] (result) in
+            guard let self = self else {
+                return
+            }
+            if result != nil {
+                fatalError("Unable to update")
+            }
+            
+            guard let indexCard = self.cards.firstIndex(where: { $0.id == card.id }) else {
+                return
+            }
+            
+            self.cards[indexCard] = card
+            secureFields.enumerated().forEach { (index, secureField) in
+                let saveSecureField = SecureFieldModel(
+                    id: secureField.id,
+                    title: secureField.title,
+                    value: secureField.value,
+                    card: card
+                )
+                Amplify.DataStore.save(saveSecureField, where: SecureFieldModel.keys.id.eq(secureField.id)) { (result) in
+                    switch result {
+                    case .success:
+                        if index == secureFields.count - 1 {
+                            self.cards[indexCard].secureFields = List(secureFields)
+                            self.filterCard = self.cards
+                        }
+                    case .failure:
+                        Amplify.DataStore.save(saveSecureField) { (result) in
+                            switch result {
+                            case .success:
+                                if index == secureFields.count - 1 {
+                                    self.cards[indexCard].secureFields = List(secureFields)
+                                    self.filterCard = self.cards
+                                }
+                            case .failure(let error):
+                                fatalError("Failed saving Secure Field \(error)")
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
     

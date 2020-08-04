@@ -13,22 +13,25 @@ struct CardDetails: View {
             HStack(alignment: .bottom) {
                 Text("\(countdown) sec")
                     .flipsForRightToLeftLayoutDirection(true)
-                    .foregroundColor(viewModel.backgroundColor.isDarkColor)
+                    .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
                     Spacer()
-                Image(systemName: showSecureFields ? "lock.open.fill" : "lock.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(viewModel.backgroundColor.isDarkColor)
-                    .onTapGesture {
-                        if !showSecureFields {
-                            viewModel.checkBiometric { (result) in
-                                showSecureFields = result
-                            }
-                        } else {
-                            showSecureFields = false
+                
+                Button(action: {
+                    if !showSecureFields {
+                        viewModel.checkBiometric { (result) in
+                            showSecureFields = result
                         }
+                    } else {
+                        showSecureFields = false
                     }
+                }){
+                    Image(systemName: showSecureFields ? "lock.open.fill" : "lock.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 20, height: 20)
+                }
+                .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
+                
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows, alignment: .center, spacing: 20) {
@@ -38,16 +41,16 @@ struct CardDetails: View {
                             VStack(alignment: .center) {
                                 Text(secure.title)
                                     .font(.title)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(viewModel.backgroundColor.sameDarkColor)
                                 Text(secure.value)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(viewModel.backgroundColor.sameDarkColor)
                                     .opacity(showSecureFields ? 1 : 0)
                             }
                             Spacer()
                         }
                     }
                     .padding(24)
-                    .background(Color.green)
+                    .background(viewModel.backgroundColor.oppositeDarkColor)
                     .cornerRadius(8)
                 }
             }

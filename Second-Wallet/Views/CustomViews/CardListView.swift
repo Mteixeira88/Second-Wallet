@@ -5,7 +5,8 @@ struct CardListView: View {
     var viewModel: CardsListViewModel
     
     @State var editMode = false
-    @State var editCardModel = NewCardViewModel()
+    @State var editCardFormModel = NewCardViewModel()
+    @State var editCardModel = CardModel(tag: "", brand: "", backgroundColor: "")
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -19,33 +20,41 @@ struct CardListView: View {
                         case .delete:
                             viewModel.deleteCard(card)
                         case .edit:
-                            editCardModel.editCard(card: card)
+                            editCardModel = card
+                            editCardFormModel.editCard(card: card)
                             editMode.toggle()
                         }
                     }
+                    .transition(.move(edge: .top))
+                    .animation(.default)
                 }
-                .transition(.move(edge: .top))
-                .animation(.default)
             }
         }
         .resignKeyboardOnDragGesture()
         .padding(.top, 10)
         .sheet(isPresented: $editMode, content: {
             VStack {
-                NewCardFormView(viewModel: editCardModel)
+                NewCardFormView(viewModel: editCardFormModel)
                 HStack(spacing: 20) {
                     Spacer()
                     Button("Cancel", action: {
                         editMode.toggle()
                     })
-                    Button("Confirm", action: {
-//                        if !viewModel.validateForm() {
-//                            return
-//                        }
-//                        viewModel.createNew(
-//                            card: newCardViewModel.createCard(),
-//                            secureFields: newCardViewModel.createSecureFieds()
-//                        )
+                    Button("Update", action: {
+                        guard editCardFormModel.validateForm(),
+                              let secureFields = editCardModel.secureFields?.map({ (secure) in
+                            SecureFieldModel(
+                                id: secure.id,
+                                title: secure.title,
+                                value: secure.value
+                            )
+                        }) else {
+                            return
+                        }
+                        viewModel.update(
+                            card: editCardFormModel.createEditCard(id: editCardModel.id),
+                            secureFields: editCardFormModel.createEditSecureFieds(secureFieldsIds: secureFields)
+                        )
                         editMode.toggle()
                     })
                 }

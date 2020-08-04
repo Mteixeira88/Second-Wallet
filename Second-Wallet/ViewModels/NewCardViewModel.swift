@@ -1,4 +1,5 @@
 import SwiftUI
+import Amplify
 
 struct NewCardFormModel {
     var digitsIsEnable: Bool
@@ -115,9 +116,30 @@ class NewCardViewModel: ObservableObject {
     }
     
     func createSecureFieds() -> [SecureFieldModel] {
-        var secureFields = [SecureFieldModel]()
-        formModel.secureFields.forEach { (secure) in
-            secureFields.append(SecureFieldModel(title: secure.title, value: secure.value))
+        return formModel.secureFields.map { (secure) in
+            SecureFieldModel(title: secure.title, value: secure.value)
+        }
+    }
+    
+    func createEditCard(id: String) -> CardModel {
+        let backgroundColor = UIColor(formModel.backgroundColor).toHexString()
+        return CardModel(
+            id: id,
+            digits: formModel.digitsIsEnable ? formModel.digits : nil,
+            tag: formModel.tag,
+            brand: formModel.brand,
+            backgroundColor: backgroundColor
+        )
+    }
+    
+    func createEditSecureFieds(secureFieldsIds: [SecureFieldModel]) -> [SecureFieldModel] {
+        var secureFields = secureFieldsIds
+        formModel.secureFields.enumerated().forEach { (index, secure) in
+            if index > secureFields.count - 1 {
+                secureFields.append(SecureFieldModel(title: secure.title, value: secure.value))
+            } else {
+                secureFields[index] = SecureFieldModel(id: secureFieldsIds[index].id, title: secure.title, value: secure.value)
+            }
         }
         return secureFields
     }

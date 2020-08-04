@@ -6,7 +6,7 @@ enum ContextMenuActions {
 }
 
 struct CardView: View {
-    var viewModel: CardViewModel
+    @State var viewModel: CardViewModel
     @State var flipped = false
     @State var countdown = 180
     
@@ -31,9 +31,6 @@ struct CardView: View {
         .frame(minWidth: 200, maxWidth: .infinity, minHeight: 200, maxHeight: 200)
         .background(Color(viewModel.backgroundColor))
         .cornerRadius(8)
-        .shadow(color: Color(UIColor.systemGray), radius: 5)
-        .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
-        .animation(.default)
         .onTapGesture {
             flipped.toggle()
             if timer != nil {
@@ -46,27 +43,34 @@ struct CardView: View {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .contextMenu {
-            Button("Edit", action: {
-                CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
-                    if result {
-                        actions(.edit)
+            if !flipped {
+                Button("Edit", action: {
+                    //                actions(.edit)
+                    
+                    CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
+                        if result {
+                            actions(.edit)
+                        }
                     }
-                }
-            })
-            
-            Button("Delete", action: {
-                CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
-                    if result {
-                        actions(.delete)
+                })
+                
+                Button("Delete", action: {
+                    //                actions(.delete)
+                    CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
+                        if result {
+                            actions(.delete)
+                        }
                     }
-                }
-            })
+                })
+            }
         }
         .onReceive(
             NotificationCenter.default.publisher(
                 for: UIApplication.didEnterBackgroundNotification)) { _ in
             flipped = false
         }
+        .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
+        .animation(.default)
     }
     
     

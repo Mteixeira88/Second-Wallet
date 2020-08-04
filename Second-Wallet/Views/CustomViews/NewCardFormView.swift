@@ -96,6 +96,19 @@ struct NewCardFormView: View {
             
             ForEach(0..<viewModel.formModel.secureFields.count, id: \.self) { index in
                 VStack(spacing: 0) {
+                    Divider()
+                    if index > 0 {
+                        HStack {
+                            Spacer()
+                            Button("\(Image(systemName: "minus")) Remove field", action: {
+                                viewModel.formModel.secureFields.remove(at: index)
+                            })
+                            .font(.caption)
+                            .foregroundColor(.red)
+                            .padding(.top, 10)
+                            .padding(.horizontal, 16)
+                        }
+                    }
                     TextField(
                         "eg: System Pin, Pin, Puk",
                         text: $viewModel.formModel.secureFields[index].title,
@@ -133,9 +146,9 @@ struct NewCardFormView: View {
                         .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
                             viewModel.formModel.secureFields[index].error = false
                         }
+                    Divider()
                 }
             }
-            .resignKeyboardOnDragGesture()
             
             HStack {
                 Spacer()

@@ -1,6 +1,7 @@
 enum RepositoryError: String, Error {
     case unableToGetAll = "Unable to get all the elements"
     case unableToCreate = "Unable to create element"
+    case unableToUpdate = "Unable to update element"
     case unableToGetOne = "Unable to get one element"
     case unableToDelete = "Data received invalid. Please try again"
 }

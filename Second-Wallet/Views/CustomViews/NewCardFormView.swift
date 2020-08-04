@@ -22,8 +22,9 @@ struct NewCardFormView: View {
                 "eg: Last 4 digits",
                 text: $viewModel.formModel.digits,
                 onEditingChanged: { changed in
-                    self.viewModel.formModel.errorDigits = false
+                    viewModel.formModel.errorDigits = false
                 })
+                .disableAutocorrection(true)
                 .disabled(!viewModel.formModel.digitsIsEnable)
                 .textField(
                     error: TextFieldErrorModifierModel(
@@ -33,12 +34,15 @@ struct NewCardFormView: View {
                 )
                 .padding(.horizontal)
                 .opacity(viewModel.formModel.digitsIsEnable ? 1 : 0.5)
+                .onChange(of: viewModel.formModel.digits) { newValue in
+                    viewModel.formModel.errorDigits = false
+                }
             
             TextField(
                 "eg: Mobile, Door duplication card, Debit",
                 text: $viewModel.formModel.tag,
                 onEditingChanged: { _ in
-                    self.viewModel.formModel.errorTag = false
+                    viewModel.formModel.errorTag = false
                 })
                 .textField(
                     model: TextFieldModifierModel(
@@ -50,13 +54,17 @@ struct NewCardFormView: View {
                         message: "Error"
                     )
                 )
+                .disableAutocorrection(true)
+                .onChange(of: viewModel.formModel.tag) { newValue in
+                    viewModel.formModel.errorTag = false
+                }
                 .padding()
             
             TextField(
                 "eg: Vodafone, American Express, Dierre",
                 text: $viewModel.formModel.brand,
                 onEditingChanged: { _ in
-                    self.viewModel.formModel.errorBrand = false
+                    viewModel.formModel.errorBrand = false
                 })
                 .textField(
                     model: TextFieldModifierModel(
@@ -68,6 +76,10 @@ struct NewCardFormView: View {
                         message: "Error"
                     )
                 )
+                .disableAutocorrection(true)
+                .onChange(of: viewModel.formModel.brand) { newValue in
+                    viewModel.formModel.errorBrand = false
+                }
                 .padding()
             
             HStack() {
@@ -88,7 +100,7 @@ struct NewCardFormView: View {
                         "eg: System Pin, Pin, Puk",
                         text: $viewModel.formModel.secureFields[index].title,
                         onEditingChanged: { _ in
-                            self.viewModel.formModel.secureFields[index].error = false
+                            viewModel.formModel.secureFields[index].error = false
                         })
                         .textField(
                             model: TextFieldModifierModel(
@@ -100,6 +112,10 @@ struct NewCardFormView: View {
                                 message: "Error"
                             )
                         )
+                        .onChange(of: viewModel.formModel.secureFields[index].title) { newValue in
+                            viewModel.formModel.secureFields[index].error = false
+                        }
+                        .disableAutocorrection(true)
                         .padding()
                     SecureField("eg: 15121", text:  $viewModel.formModel.secureFields[index].value)
                         .textField(
@@ -112,9 +128,14 @@ struct NewCardFormView: View {
                                 message: "Error"
                             )
                         )
+                        .disableAutocorrection(true)
                         .padding(.horizontal)
+                        .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
+                            viewModel.formModel.secureFields[index].error = false
+                        }
                 }
             }
+            .resignKeyboardOnDragGesture()
             
             HStack {
                 Spacer()

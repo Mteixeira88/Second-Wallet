@@ -11,8 +11,6 @@ struct CardDetails: View {
     var body: some View {
         VStack(spacing: 30) {
             HStack(alignment: .bottom) {
-//                Image(systemName: "gobackward")
-//                    .foregroundColor(viewModel.backgroundColor.isDarkColor)
                 Text("\(countdown) sec")
                     .flipsForRightToLeftLayoutDirection(true)
                     .foregroundColor(viewModel.backgroundColor.isDarkColor)
@@ -32,7 +30,7 @@ struct CardDetails: View {
                         }
                     }
             }
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows, alignment: .center, spacing: 20) {
                     ForEach(viewModel.secureFields) { secure in
                         HStack {

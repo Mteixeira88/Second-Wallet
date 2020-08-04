@@ -2,13 +2,16 @@ import Amplify
 
 class CardsListViewModel: ObservableObject {
     @Published var cards: [CardModel]
+    var filterCard: [CardModel]
     
     init(cards: [CardModel] = []) {
         self.cards = cards
+        self.filterCard = cards
         CardRepository.shared.getAll { [weak self] result in
             switch result {
             case .success(let cards):
                 self?.cards = cards.reversed()
+                self?.filterCard = cards.reversed()
             case .failure:
                 fatalError("Something went wrong on init cards")
             }
@@ -22,6 +25,7 @@ class CardsListViewModel: ObservableObject {
             }
             let defaultPosition = 0
             self?.cards.insert(card, at: defaultPosition)
+            self?.filterCard.insert(card, at: defaultPosition)
             
             secureFields.enumerated().forEach { (index, secureField) in
                 let saveSecureField = SecureFieldModel(
@@ -34,6 +38,7 @@ class CardsListViewModel: ObservableObject {
                     case .success:
                         if index == secureFields.count - 1 {
                             self?.cards[defaultPosition].secureFields = List(secureFields)
+                            self?.filterCard[defaultPosition].secureFields = List(secureFields)
                         }
                     case .failure(let error):
                         fatalError("Failed saving Secure Field \(error)")
@@ -50,8 +55,19 @@ class CardsListViewModel: ObservableObject {
             }
             if let index = self?.cards.firstIndex(of: card) {
                 self?.cards.remove(at: index)
+                self?.filterCard.remove(at: index)
             }
         }
+    }
+    
+    func searchCard(query: String) {
+        cards = []
+        if query.trimmingCharacters(in: .whitespaces).isEmpty {
+            cards = filterCard
+            return
+        }
+
+        cards = filterCard.filter({ $0.brand.lowercased().contains(query.lowercased()) })
     }
 }
 

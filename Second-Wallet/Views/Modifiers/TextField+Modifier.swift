@@ -32,9 +32,11 @@ struct TextFieldModifier: ViewModifier {
                     .font(.caption)
                     .foregroundColor(Color(UIColor.systemGray3))
             }
-            Text(error.message)
-                .foregroundColor(Color(UIColor.red))
-                .opacity(error.showError ? 1 : 0)
+            if error.showError {
+                Text(error.message)
+                    .foregroundColor(Color(UIColor.red))
+                    .animation(.default)
+            }
         }
     }
 }

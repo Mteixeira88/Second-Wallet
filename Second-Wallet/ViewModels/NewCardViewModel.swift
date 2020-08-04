@@ -18,10 +18,10 @@ struct SecureFieldsViewModel {
     var value: String
     var error: Bool
     
-    init() {
+    init(title: String = "", value: String = "") {
         self.id = UUID().uuidString
-        self.title = ""
-        self.value = ""
+        self.title = title
+        self.value = value
         self.error = false
     }
 }
@@ -41,6 +41,7 @@ class NewCardViewModel: ObservableObject {
             backgroundColor: Color.red,
             secureFields: [SecureFieldsViewModel()]
         )
+        
     }
     
     func resetForm() {
@@ -119,5 +120,24 @@ class NewCardViewModel: ObservableObject {
             secureFields.append(SecureFieldModel(title: secure.title, value: secure.value))
         }
         return secureFields
+    }
+    
+    func editCard(card: CardModel) {
+        formModel = NewCardFormModel(
+            digitsIsEnable: card.digits != nil ? true : false,
+            digits: card.digits != nil ? card.digits! : "",
+            errorDigits: false,
+            tag: card.tag,
+            errorTag: false,
+            brand: card.brand,
+            errorBrand: false,
+            backgroundColor: Color.red,
+            secureFields: []
+        )
+
+        card.secureFields?.forEach({ (secureField) in
+            let secure = SecureFieldsViewModel(title: secureField.title, value: secureField.value)
+            formModel.secureFields.append(secure)
+        })
     }
 }

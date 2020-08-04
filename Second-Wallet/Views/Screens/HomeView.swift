@@ -4,26 +4,29 @@ struct HomeView: View {
     private(set) var adaptiveLayout = [GridItem(.adaptive(minimum: 250))]
     @ObservedObject var viewModel: CardsListViewModel
     
+    @State var searchText = ""
+    @State var isSearching = false
+    
     var body: some View {
-        if viewModel.cards.isEmpty {
+        if viewModel.cards.isEmpty,
+           !isSearching {
             VStack {
                 AddNewCard(viewModel: viewModel)
             }
         } else {
             VStack {
+                SearchBarView(searchText: $searchText, onSearching: { status in
+                    isSearching = status
+                    viewModel.searchCard(query: searchText)
+                })
                 CardListView(viewModel: viewModel)
                 Spacer()
                 HStack {
                     Spacer()
                     AddNewCard(viewModel: viewModel)
-                    Button("\(Image(systemName: "plus")) Delete cards test", action: {
-                        viewModel.cards.forEach { (card) in
-                            viewModel.deleteCard(card)
-                        }
-                    })
                 }
-                .padding()
             }
+            .padding()
         }
     }
 }

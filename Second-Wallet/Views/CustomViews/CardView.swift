@@ -1,12 +1,18 @@
 import SwiftUI
 import UIKit
 
+enum ContextMenuActions {
+    case edit, delete
+}
+
 struct CardView: View {
     var viewModel: CardViewModel
     @State var flipped = false
     @State var countdown = 180
     
     @State var timer: Timer?
+    
+    var actions: (ContextMenuActions) -> Void
     
     var body: some View {
         HStack {
@@ -37,6 +43,24 @@ struct CardView: View {
                 countdown = 180
                 timeout()
             }
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+        .contextMenu {
+            Button("Edit", action: {
+                CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
+                    if result {
+                        actions(.edit)
+                    }
+                }
+            })
+            
+            Button("Delete", action: {
+                CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
+                    if result {
+                        actions(.delete)
+                    }
+                }
+            })
         }
         .onReceive(
             NotificationCenter.default.publisher(
@@ -59,6 +83,13 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(viewModel: CardViewModel(card: cardsPreview[1]))
+        CardView(viewModel: CardViewModel(card: cardsPreview[1])) { actions in
+            switch actions {
+            case .delete:
+                break
+            case .edit:
+                break
+            }
+        }
     }
 }

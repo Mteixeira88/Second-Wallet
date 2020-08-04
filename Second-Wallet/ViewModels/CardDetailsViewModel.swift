@@ -23,13 +23,10 @@ class CardDetailViewModel {
         let context = LAContext()
         var error: NSError?
         
-        // check whether biometric authentication is possible
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            // it's possible, so go ahead and use it
-            let reason = "We need to unlock your data."
+            let reason = "In order proceed, we need to check it's really you."
             
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                // authentication has now completed
                 DispatchQueue.main.async {
                     if success {
                         completion(true)

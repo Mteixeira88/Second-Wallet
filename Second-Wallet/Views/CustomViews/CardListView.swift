@@ -25,8 +25,8 @@ struct CardListView: View {
                             editMode.toggle()
                         }
                     }
-                    .transition(.move(edge: .top))
-                    .animation(.default)
+//                    .transition(.move(edge: .top))
+//                    .animation(.default)
                 }
             }
         }

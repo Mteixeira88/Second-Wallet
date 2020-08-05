@@ -21,10 +21,8 @@ struct NewCardFormView: View {
             
             TextField(
                 "eg: Last 4 digits",
-                text: $viewModel.formModel.digits,
-                onEditingChanged: { changed in
-                    viewModel.formModel.errorDigits = false
-                })
+                text: $viewModel.formModel.digits
+            )
                 .disableAutocorrection(true)
                 .disabled(!viewModel.formModel.digitsIsEnable)
                 .textField(
@@ -41,10 +39,8 @@ struct NewCardFormView: View {
             
             TextField(
                 "eg: Mobile, Door duplication card, Debit",
-                text: $viewModel.formModel.tag,
-                onEditingChanged: { _ in
-                    viewModel.formModel.errorTag = false
-                })
+                text: $viewModel.formModel.tag
+            )
                 .textField(
                     model: TextFieldModifierModel(
                         label: "Tag",
@@ -63,10 +59,8 @@ struct NewCardFormView: View {
             
             TextField(
                 "eg: Vodafone, American Express, Dierre",
-                text: $viewModel.formModel.brand,
-                onEditingChanged: { _ in
-                    viewModel.formModel.errorBrand = false
-                })
+                text: $viewModel.formModel.brand
+            )
                 .textField(
                     model: TextFieldModifierModel(
                         label: "Brand",
@@ -86,15 +80,18 @@ struct NewCardFormView: View {
             VStack(alignment: .leading) {
                 Text("Background color")
                     .font(.body)
-                ColorPicker(selection: $viewModel.formModel.backgroundColor, supportsOpacity: false, label: {
-                    Rectangle()
-                        .fill(viewModel.formModel.backgroundColor)
-                })
+                ColorPicker(
+                    selection: $viewModel.formModel.backgroundColor,
+                    supportsOpacity: false,
+                    label: {
+                        Rectangle()
+                            .fill(viewModel.formModel.backgroundColor)
+                    }
+                )
             }
             .padding()
             
             Divider()
-            
             
             HStack {
                 Spacer()
@@ -108,7 +105,7 @@ struct NewCardFormView: View {
             List {
                 ForEach(0..<viewModel.formModel.secureFields.count, id: \.self) { index in
                     VStack(spacing: 0) {
-                        if index > 0 {
+                        if viewModel.formModel.secureFields.count > 1 {
                             HStack {
                                 Spacer()
                                 Button("\(Image(systemName: "minus")) Remove field", action: {
@@ -120,10 +117,7 @@ struct NewCardFormView: View {
                         }
                         TextField(
                             "eg: System Pin, Pin, Puk",
-                            text: $viewModel.formModel.secureFields[index].title,
-                            onEditingChanged: { _ in
-                                viewModel.formModel.secureFields[index].error = false
-                            })
+                            text: $viewModel.formModel.secureFields[index].title)
                             .textField(
                                 model: TextFieldModifierModel(
                                     label: "#\(index + 1) Secure Field title",
@@ -139,26 +133,30 @@ struct NewCardFormView: View {
                             }
                             .disableAutocorrection(true)
                             .padding()
-                        SecureField("eg: 15121", text:  $viewModel.formModel.secureFields[index].value)
-                            .textField(
-                                model: TextFieldModifierModel(
-                                    label: "#\(index + 1) Secure Field value",
-                                    bottomLabel: nil
-                                ),
-                                error: TextFieldErrorModifierModel(
-                                    showError: $viewModel.formModel.secureFields[index].error,
-                                    message: "Error"
-                                )
+                        SecureField(
+                            "eg: 15121",
+                            text:  $viewModel.formModel.secureFields[index].value
+                        )
+                        .textField(
+                            model: TextFieldModifierModel(
+                                label: "#\(index + 1) Secure Field value",
+                                bottomLabel: nil
+                            ),
+                            error: TextFieldErrorModifierModel(
+                                showError: $viewModel.formModel.secureFields[index].error,
+                                message: "Error"
                             )
-                            .disableAutocorrection(true)
-                            .padding(.horizontal)
-                            .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
-                                viewModel.formModel.secureFields[index].error = false
-                            }
+                        )
+                        .disableAutocorrection(true)
+                        .padding(.horizontal)
+                        .padding(.bottom, 10)
+                        .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
+                            viewModel.formModel.secureFields[index].error = false
+                        }
                     }
                 }
             }
-            .frame(height: CGFloat(220 * viewModel.formModel.secureFields.count))
+            .frame(height: CGFloat(250 * viewModel.formModel.secureFields.count))
             .introspectTableView { tableView in
                 tableView.isScrollEnabled = false
             }

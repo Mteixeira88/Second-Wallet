@@ -23,7 +23,7 @@ struct TextFieldModifier: ViewModifier {
             }
             content
                 .padding()
-                .background(error.showError ? Color(UIColor.red) : Color(UIColor.systemGray6))
+                .background(error.showError ? Color(UIColor.red) : Color("inputBackground"))
                 .cornerRadius(8)
             if  let model = model,
                 let bottomLabel = model.bottomLabel,

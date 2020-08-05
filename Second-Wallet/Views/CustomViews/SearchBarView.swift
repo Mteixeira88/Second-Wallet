@@ -9,14 +9,10 @@ struct SearchBarView: View {
     
     var body: some View {
         HStack {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(Color("brand"))
             TextField("Search", text: $searchText)
                 .disableAutocorrection(true)
-                .textField(
-                    error: TextFieldErrorModifierModel(
-                        showError: .constant(false),
-                        message: "Error"
-                    )
-                )
                 .onTapGesture {
                     isEditing = true
                 }
@@ -24,17 +20,22 @@ struct SearchBarView: View {
                     onSearching(isEditing)
                 }
             
-            if isEditing {
-                Button("Cancel", action: {
+                Button("\(Image(systemName: "xmark.circle.fill"))", action: {
                     isEditing = false
+                    onSearching(isEditing)
                     searchText = ""
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 })
                 .padding(.trailing, 10)
-                .transition(.move(edge: .trailing))
-                .animation(.default)
-            }
+                .opacity(isEditing ? 1 : 0)
+                .foregroundColor(Color("brand"))
         }
+        .textField(
+            error: TextFieldErrorModifierModel(
+                showError: .constant(false),
+                message: "Error"
+            )
+        )
     }
 }
 

@@ -71,29 +71,27 @@ class CardsListViewModel: ObservableObject {
                     value: secureField.value,
                     card: card
                 )
-                Amplify.DataStore.save(saveSecureField, where: SecureFieldModel.keys.id.eq(secureField.id)) { (result) in
-                    switch result {
-                    case .success:
-                        if index == secureFields.count - 1 {
-                            self.cards[indexCard].secureFields = List(secureFields)
-                            self.filterCard = self.cards
-                        }
-                    case .failure:
-                        Amplify.DataStore.save(saveSecureField) { (result) in
-                            switch result {
-                            case .success:
-                                if index == secureFields.count - 1 {
-                                    self.cards[indexCard].secureFields = List(secureFields)
-                                    self.filterCard = self.cards
-                                }
-                            case .failure(let error):
-                                fatalError("Failed saving Secure Field \(error)")
+                
+                SecureFieldRepository.shared.update(saveSecureField) { [weak self] (result) in
+                    if result != nil {
+                        SecureFieldRepository.shared.create(saveSecureField) { [weak self] (resultCreate) in
+                            if resultCreate != nil {
+                                return
                             }
+                            self?.updateSecureFields(at: index, on: indexCard, with: secureFields)
                         }
+                        return
                     }
+                    self?.updateSecureFields(at: index, on: indexCard, with: secureFields)
                 }
             }
-            
+        }
+    }
+    
+    func updateSecureFields(at index: Int,on indexCard: Int, with secureFields: [SecureFieldModel]) {
+        if index == secureFields.count - 1 {
+            cards[indexCard].secureFields = List(secureFields)
+            filterCard = cards
         }
     }
     

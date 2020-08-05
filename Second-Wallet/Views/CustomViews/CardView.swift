@@ -45,13 +45,13 @@ struct CardView: View {
         .contextMenu {
             if !flipped {
                 Button("Edit", action: {
-                    //                                    actions(.edit)
+                    actions(.edit)
                     
-                    CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
-                        if result {
-                            actions(.edit)
-                        }
-                    }
+//                    CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
+//                        if result {
+//                            actions(.edit)
+//                        }
+//                    }
                 })
                 
                 Button("Delete", action: {

@@ -12,6 +12,7 @@ struct AddNewCard: View {
                 newCardViewModel.resetForm()
                 showNewCard.toggle()
             })
+            .foregroundColor(Color("brand"))
         }
         .sheet(isPresented: $showNewCard, content: {
             VStack {

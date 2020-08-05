@@ -1,14 +1,15 @@
+
 import Foundation
 import Amplify
 
-class CardRepository: Repository {
-    static let shared = CardRepository()
+class SecureFieldRepository: Repository {
+    static let shared = SecureFieldRepository()
     
-    func getAll(completion: @escaping(Result<[CardModel], RepositoryError>) -> Void) {
-        Amplify.DataStore.query(CardModel.self) { result in
+    func getAll(completion: @escaping(Result<[SecureFieldModel], RepositoryError>) -> Void) {
+        Amplify.DataStore.query(SecureFieldModel.self) { result in
             switch result {
-            case .success(let cards):
-                completion(.success(cards))
+            case .success(let securityFields):
+                completion(.success(securityFields))
             case .failure(let error):
                 debugPrint("Failed getting all because of: \(error)")
                 completion(.failure(RepositoryError.unableToGetAll))
@@ -18,9 +19,9 @@ class CardRepository: Repository {
     
     func get(
         identifier: String,
-        completion: @escaping(Result<CardModel, RepositoryError>) -> Void
+        completion: @escaping(Result<SecureFieldModel, RepositoryError>) -> Void
     ) {
-        Amplify.DataStore.query(CardModel.self, byId: identifier) { result in
+        Amplify.DataStore.query(SecureFieldModel.self, byId: identifier) { result in
             switch result {
             case .success(let card):
                 guard let card = card else {
@@ -36,7 +37,7 @@ class CardRepository: Repository {
     }
     
     func create(
-        _ model: CardModel,
+        _ model: SecureFieldModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
         Amplify.DataStore.save(model) { (result) in
@@ -52,10 +53,10 @@ class CardRepository: Repository {
     }
     
     func update(
-        _ model: CardModel,
+        _ model: SecureFieldModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
-        Amplify.DataStore.save(model, where: CardModel.keys.id.eq(model.id)) { (result) in
+        Amplify.DataStore.save(model, where: SecureFieldModel.keys.id.eq(model.id)) { (result) in
             switch result {
             case .success:
                 completion(nil)
@@ -67,19 +68,19 @@ class CardRepository: Repository {
     }
     
     func delete(
-        _ model: CardModel,
+        _ model: SecureFieldModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
         getAll { result in
             switch result {
-            case .success(let cards):
-                guard let deletedCard = cards.first(where: {$0.id == model.id }) else {
+            case .success(let securityFields):
+                guard let deleteSecurityField = securityFields.first(where: {$0.id == model.id }) else {
                     debugPrint("Unable to index delete")
                     completion(.unableToDelete)
                     return
                 }
                 
-                Amplify.DataStore.delete(deletedCard) { result in
+                Amplify.DataStore.delete(deleteSecurityField) { result in
                     switch result {
                     case .success:
                         completion(nil)

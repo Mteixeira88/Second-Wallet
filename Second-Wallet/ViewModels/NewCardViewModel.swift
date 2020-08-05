@@ -56,7 +56,7 @@ class NewCardViewModel: ObservableObject {
             errorTag: false,
             brand: "",
             errorBrand: false,
-            backgroundColor: Color.red,
+            backgroundColor: Color("brand"),
             secureFields: [SecureFieldsViewModel()]
         )
     }
@@ -90,7 +90,8 @@ class NewCardViewModel: ObservableObject {
         
         if !errorSecure.isEmpty {
             errorSecure.forEach { (error) in
-                guard let index = formModel.secureFields.firstIndex(where: { $0.id == error.id }) else {
+                guard let index = formModel.secureFields.firstIndex(
+                        where: { $0.id == error.id }) else {
                     return
                 }
                 formModel.secureFields[index].error = true
@@ -138,9 +139,18 @@ class NewCardViewModel: ObservableObject {
         var secureFields = [SecureFieldModel]()
         secureFieldsIds.enumerated().forEach { (index, secure) in
             if index > secureFieldsIds.count - 1 {
-                secureFields.append(SecureFieldModel(title: secure.title, value: secure.value))
+                secureFields.append(
+                    SecureFieldModel(
+                        title: secure.title,
+                        value: secure.value))
             } else {
-                secureFields.append(SecureFieldModel(id: secure.id, title: secure.title, value: secure.value))
+                secureFields.append(
+                    SecureFieldModel(
+                        id: secure.id,
+                        title: secure.title,
+                        value: secure.value
+                    )
+                )
             }
         }
         return secureFields

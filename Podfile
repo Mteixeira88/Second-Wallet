@@ -14,6 +14,7 @@ target 'Second-Wallet' do
   pod 'Amplify'
   pod 'Amplify/Tools'
   pod 'AmplifyPlugins/AWSDataStorePlugin'
+  pod 'Introspect'
 
   target 'Second-WalletTests' do
     inherit! :search_paths

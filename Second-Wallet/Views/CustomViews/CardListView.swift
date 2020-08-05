@@ -37,26 +37,17 @@ struct CardListView: View {
                 NewCardFormView(viewModel: editCardFormModel)
                 HStack(spacing: 20) {
                     Spacer()
-                    Button("Cancel", action: {
-                        editMode.toggle()
-                    })
                     Button("Update", action: {
-                        guard editCardFormModel.validateForm(),
-                              let secureFields = editCardModel.secureFields?.map({ (secure) in
-                            SecureFieldModel(
-                                id: secure.id,
-                                title: secure.title,
-                                value: secure.value
-                            )
-                        }) else {
+                        if !editCardFormModel.validateForm() {
                             return
                         }
                         viewModel.update(
                             card: editCardFormModel.createEditCard(id: editCardModel.id),
-                            secureFields: editCardFormModel.createEditSecureFieds(secureFieldsIds: secureFields)
+                            secureFields: editCardFormModel.createEditSecureFieds(secureFieldsIds: editCardFormModel.formModel.secureFields)
                         )
                         editMode.toggle()
                     })
+                    .font(.title3)
                 }
                 .padding()
             }

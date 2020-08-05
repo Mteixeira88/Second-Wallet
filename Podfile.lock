@@ -22,6 +22,7 @@ PODS:
     - Amplify (= 1.0.5)
     - AWSCore (~> 2.15.0)
     - AWSMobileClient (~> 2.15.0)
+  - Introspect (0.1.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - Amplify
   - Amplify/Tools
   - AmplifyPlugins/AWSDataStorePlugin
+  - Introspect
 
 SPEC REPOS:
   trunk:
@@ -41,6 +43,7 @@ SPEC REPOS:
     - AWSCore
     - AWSMobileClient
     - AWSPluginsCore
+    - Introspect
     - SQLite.swift
 
 SPEC CHECKSUMS:
@@ -52,8 +55,9 @@ SPEC CHECKSUMS:
   AWSCore: b732e43f2afaef25c3a7dd9408b8c594213397bd
   AWSMobileClient: 633ec8c81dadec097e1fdb62e372e0af9b6dd706
   AWSPluginsCore: 817b179b67eda4d93662daaf2ec6a95272bb2740
+  Introspect: ad32f2b7b9e7ac2c008b9dfec3d5325fbd3660fa
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: 430198c404d6e12b193057c2d60b9cb070e04571
+PODFILE CHECKSUM: f0bc51872de99b4ce8d251372baf63d4cc394bc3
 
 COCOAPODS: 1.9.1

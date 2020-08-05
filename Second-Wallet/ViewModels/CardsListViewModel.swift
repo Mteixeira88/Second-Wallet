@@ -2,7 +2,7 @@ import Amplify
 
 class CardsListViewModel: ObservableObject {
     @Published var cards: [CardModel]
-    var filterCard: [CardModel]
+    private var filterCard: [CardModel]
     
     init(cards: [CardModel] = []) {
         self.cards = cards

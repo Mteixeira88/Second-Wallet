@@ -6,7 +6,7 @@ enum ContextMenuActions {
 }
 
 struct CardView: View {
-    @State var viewModel: CardViewModel
+    var viewModel: CardViewModel
     @State var flipped = false
     @State var countdown = 180
     
@@ -45,7 +45,7 @@ struct CardView: View {
         .contextMenu {
             if !flipped {
                 Button("Edit", action: {
-                    //                actions(.edit)
+                    //                                    actions(.edit)
                     
                     CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
                         if result {

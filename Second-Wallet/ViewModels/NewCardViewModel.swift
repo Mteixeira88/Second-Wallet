@@ -19,8 +19,8 @@ struct SecureFieldsViewModel {
     var value: String
     var error: Bool
     
-    init(title: String = "", value: String = "") {
-        self.id = UUID().uuidString
+    init(id: String = UUID().uuidString, title: String = "", value: String = "") {
+        self.id = id
         self.title = title
         self.value = value
         self.error = false
@@ -29,6 +29,7 @@ struct SecureFieldsViewModel {
 
 class NewCardViewModel: ObservableObject {
     @Published var formModel: NewCardFormModel
+    var isEditing: Bool
     
     init() {
         formModel = NewCardFormModel(
@@ -42,6 +43,7 @@ class NewCardViewModel: ObservableObject {
             backgroundColor: Color.red,
             secureFields: [SecureFieldsViewModel()]
         )
+        isEditing = false
         
     }
     
@@ -132,19 +134,21 @@ class NewCardViewModel: ObservableObject {
         )
     }
     
-    func createEditSecureFieds(secureFieldsIds: [SecureFieldModel]) -> [SecureFieldModel] {
-        var secureFields = secureFieldsIds
-        formModel.secureFields.enumerated().forEach { (index, secure) in
-            if index > secureFields.count - 1 {
+    func createEditSecureFieds(secureFieldsIds: [SecureFieldsViewModel]) -> [SecureFieldModel] {
+        var secureFields = [SecureFieldModel]()
+        secureFieldsIds.enumerated().forEach { (index, secure) in
+            if index > secureFieldsIds.count - 1 {
                 secureFields.append(SecureFieldModel(title: secure.title, value: secure.value))
             } else {
-                secureFields[index] = SecureFieldModel(id: secureFieldsIds[index].id, title: secure.title, value: secure.value)
+                secureFields.append(SecureFieldModel(id: secure.id, title: secure.title, value: secure.value))
             }
         }
         return secureFields
     }
     
     func editCard(card: CardModel) {
+        isEditing = true
+        
         formModel = NewCardFormModel(
             digitsIsEnable: card.digits != nil ? true : false,
             digits: card.digits != nil ? card.digits! : "",
@@ -153,13 +157,45 @@ class NewCardViewModel: ObservableObject {
             errorTag: false,
             brand: card.brand,
             errorBrand: false,
-            backgroundColor: Color.red,
+            backgroundColor: Color(UIColor(hexString: card.backgroundColor) ?? .red),
             secureFields: []
         )
 
         card.secureFields?.forEach({ (secureField) in
-            let secure = SecureFieldsViewModel(title: secureField.title, value: secureField.value)
+            let secure = SecureFieldsViewModel(id: secureField.id, title: secureField.title, value: secureField.value)
             formModel.secureFields.append(secure)
         })
+    }
+    
+    func removeSecureField(at index: Int) {
+        let removedSecureField = formModel.secureFields[index]
+        formModel.secureFields.remove(at: index)
+        
+        if isEditing {
+            Amplify.DataStore.query(SecureFieldModel.self) { result in
+                switch result {
+                case .success(let fields):
+                    guard let deletedCard = fields.first(where: { $0.id == removedSecureField.id }) else {
+                        debugPrint("Unable to index delete")
+                        return
+                    }
+                    Amplify.DataStore.delete(deletedCard) { (result) in
+                        switch result {
+                        case .success:
+                            break
+                        case .failure(let error):
+                            debugPrint(error)
+                        }
+                    }
+                case .failure(let error):
+                    debugPrint("Failed getting all because of: \(error)")
+                }
+            }
+           
+        }
+    }
+    
+    func addSecureField() {
+        formModel.secureFields.append(SecureFieldsViewModel())
     }
 }

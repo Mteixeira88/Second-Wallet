@@ -9,8 +9,8 @@ struct SearchBarView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(Color("brand"))
+            Assets.systemIcon(.magnifyGlass)
+                .foregroundColor(Assets.colors(.brand))
             TextField("Search", text: $searchText)
                 .disableAutocorrection(true)
                 .onTapGesture {
@@ -19,8 +19,9 @@ struct SearchBarView: View {
                 .onChange(of: searchText) { newValue in
                     onSearching(isEditing)
                 }
+                .cornerRadius(0)
             
-                Button("\(Image(systemName: "xmark.circle.fill"))", action: {
+                Button("\(Assets.systemIcon(.xmark))", action: {
                     isEditing = false
                     onSearching(isEditing)
                     searchText = ""
@@ -28,12 +29,13 @@ struct SearchBarView: View {
                 })
                 .padding(.trailing, 10)
                 .opacity(isEditing ? 1 : 0)
-                .foregroundColor(Color("brand"))
+                .foregroundColor(Assets.colors(.brand))
         }
+        .cornerRadius(0)
         .textField(
             error: TextFieldErrorModifierModel(
                 showError: .constant(false),
-                message: "Error"
+                message: Text("Error search")
             )
         )
     }

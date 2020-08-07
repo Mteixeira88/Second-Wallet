@@ -56,7 +56,7 @@ class NewCardViewModel: ObservableObject {
             errorTag: false,
             brand: "",
             errorBrand: false,
-            backgroundColor: Color("brand"),
+            backgroundColor: Assets.colors(.brand),
             secureFields: [SecureFieldsViewModel()]
         )
     }

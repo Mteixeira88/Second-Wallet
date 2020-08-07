@@ -28,7 +28,7 @@ struct NewCardFormView: View {
                 .textField(
                     error: TextFieldErrorModifierModel(
                         showError: $viewModel.formModel.errorDigits,
-                        message: "Error"
+                        message: Text("Error digits")
                     )
                 )
                 .padding(.horizontal)
@@ -43,12 +43,12 @@ struct NewCardFormView: View {
             )
                 .textField(
                     model: TextFieldModifierModel(
-                        label: "Tag",
+                        label: Text("Tag"),
                         bottomLabel: "max: 30 chars"
                     ),
                     error: TextFieldErrorModifierModel(
                         showError: $viewModel.formModel.errorTag,
-                        message: "Error"
+                        message: Text("Error tag")
                     )
                 )
                 .disableAutocorrection(true)
@@ -63,12 +63,12 @@ struct NewCardFormView: View {
             )
                 .textField(
                     model: TextFieldModifierModel(
-                        label: "Brand",
+                        label: Text("Brand"),
                         bottomLabel: "max: 20 chars"
                     ),
                     error: TextFieldErrorModifierModel(
                         showError: $viewModel.formModel.errorBrand,
-                        message: "Error"
+                        message: Text("Error brand")
                     )
                 )
                 .disableAutocorrection(true)
@@ -95,24 +95,28 @@ struct NewCardFormView: View {
             
             HStack {
                 Spacer()
-                Button("\(Image(systemName: "plus")) Add secure field", action: {
+                Button(action: {
                     viewModel.addSecureField()
-                })
+                }) {
+                    Text("\(Assets.systemIcon(.plus)) Add secure field")
+                }
             }
             .padding(.top, 10)
             .padding(.horizontal, 16)
             
             List {
                 ForEach(0..<viewModel.formModel.secureFields.count, id: \.self) { index in
-                    VStack(spacing: 0) {
+                    VStack(spacing: 5) {
                         if viewModel.formModel.secureFields.count > 1 {
                             HStack {
                                 Spacer()
-                                Button("\(Image(systemName: "minus")) Remove field", action: {
+                                Button(action: {
                                     viewModel.removeSecureField(at: index)
-                                })
+                                }) {
+                                    Text("\(Assets.systemIcon(.minus)) Remove field")
+                                }
                                 .font(.caption)
-                                .foregroundColor(.red)
+                                .foregroundColor(Assets.colors(.inputErrorLabel))
                             }
                         }
                         TextField(
@@ -120,35 +124,33 @@ struct NewCardFormView: View {
                             text: $viewModel.formModel.secureFields[index].title)
                             .textField(
                                 model: TextFieldModifierModel(
-                                    label: "#\(index + 1) Secure Field title",
+                                    label: Text("#\(index + 1) Secure Field title"),
                                     bottomLabel: nil
                                 ),
                                 error: TextFieldErrorModifierModel(
                                     showError: $viewModel.formModel.secureFields[index].error,
-                                    message: "Error"
+                                    message: Text("Error secure title")
                                 )
                             )
                             .onChange(of: viewModel.formModel.secureFields[index].title) { newValue in
                                 viewModel.formModel.secureFields[index].error = false
                             }
                             .disableAutocorrection(true)
-                            .padding()
                         SecureField(
                             "eg: 15121",
                             text:  $viewModel.formModel.secureFields[index].value
                         )
                         .textField(
                             model: TextFieldModifierModel(
-                                label: "#\(index + 1) Secure Field value",
+                                label: Text("#\(index + 1) Secure Field value"),
                                 bottomLabel: nil
                             ),
                             error: TextFieldErrorModifierModel(
                                 showError: $viewModel.formModel.secureFields[index].error,
-                                message: "Error"
+                                message: Text("Error secure value")
                             )
                         )
                         .disableAutocorrection(true)
-                        .padding(.horizontal)
                         .padding(.bottom, 10)
                         .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
                             viewModel.formModel.secureFields[index].error = false

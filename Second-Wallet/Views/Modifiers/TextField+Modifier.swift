@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct TextFieldModifierModel {
-    let label: String?
+    let label: Text?
     let bottomLabel: String?
 }
 
 struct TextFieldErrorModifierModel {
     @Binding var showError: Bool
-    let message: String
+    let message: Text
 }
 
 struct TextFieldModifier: ViewModifier {
@@ -18,12 +18,12 @@ struct TextFieldModifier: ViewModifier {
         VStack(alignment: .leading) {
             if  let model = model,
                 let label = model.label {
-                Text(label)
+                label
                     .font(.body)
             }
             content
                 .padding()
-                .background(error.showError ? Color(UIColor.red) : Color("inputBackground"))
+                .background(error.showError ? Assets.colors(.inputError) : Assets.colors(.inputBackground))
                 .cornerRadius(8)
             if  let model = model,
                 let bottomLabel = model.bottomLabel,
@@ -33,8 +33,8 @@ struct TextFieldModifier: ViewModifier {
                     .foregroundColor(Color(UIColor.systemGray3))
             }
             if error.showError {
-                Text(error.message)
-                    .foregroundColor(Color(UIColor.red))
+                error.message
+                    .foregroundColor(Assets.colors(.inputErrorLabel))
                     .animation(.default)
             }
         }

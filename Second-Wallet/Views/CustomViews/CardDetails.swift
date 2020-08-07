@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CardDetails: View {
     let rows = [GridItem(.flexible(minimum: 10, maximum: .infinity))]
-    var viewModel: CardDetailViewModel
+    var viewModel: CardViewModel
     
     @State var showSecureFields = false
     
@@ -25,7 +25,12 @@ struct CardDetails: View {
                         showSecureFields = false
                     }
                 }){
-                    Image(systemName: showSecureFields ? "lock.open.fill" : "lock.fill")
+                    Image(
+                        systemName:
+                            showSecureFields ?
+                            SFSymbols.lockerOpen.rawValue :
+                            SFSymbols.locker.rawValue
+                    )
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 20, height: 20)
@@ -61,6 +66,6 @@ struct CardDetails: View {
 
 struct CardDetails_Previews: PreviewProvider {
     static var previews: some View {
-        CardDetails(viewModel: testSecureFields, countdown: .constant(300))
+        CardDetails(viewModel: CardViewModel(card: cardsPreview[1]), countdown: .constant(300))
     }
 }

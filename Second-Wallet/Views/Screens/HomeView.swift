@@ -16,34 +16,55 @@ struct HomeView: View {
                     AddNewCard(viewModel: viewModel)
                 }
             } else {
-                VStack {
-                    if showSearch {
-                        SearchBarView(
-                            searchText: $searchText,
-                            onSearching: { status in
-                                isSearching = status
-                                viewModel.searchCard(query: searchText)
-                            }
-                        )
-                        .transition(.move(edge: .top))
-                        .animation(.default)
+                ZStack {
+                    VStack {
+                        CardListView(viewModel: viewModel)
                     }
-                    CardListView(viewModel: viewModel)
-                    Spacer()
-                    HStack {
+                    .padding(.top, showSearch ? 60 : 0)
+                    .padding(.bottom, 60)
+                    .transition(.move(edge: .top))
+                    .animation(.default)
+                    VStack {
+                        if showSearch {
+                            SearchBarView(
+                                searchText: $searchText,
+                                onSearching: { status in
+                                    isSearching = status
+                                    viewModel.searchCard(query: searchText)
+                                }
+                            )
+                            .transition(.move(edge: .top))
+                            .animation(.default)
+                            .padding(.top, 5)
+                        }
+                        
                         Spacer()
-                        AddNewCard(viewModel: viewModel)
+                        HStack {
+                            Spacer()
+                            AddNewCard(viewModel: viewModel)
+                        }
+                        .padding()
+                        .background(Color(UIColor.systemBackground))
                     }
                 }
-                .padding()
+                .padding(.horizontal)
                 .navigationBarItems(
-                    leading: Image("logo").resizable()
-                        .frame(width: 30, height: 25),
+                    leading: Image("logo")
+                        .resizable()
+                        .frame(width: 30, height: 25)
+                        .foregroundColor(Assets.colors(.brand)),
                     trailing: Button(action: {
                         showSearch.toggle()
                     }) {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(Color("brand"))
+                        Image(
+                            systemName:
+                                showSearch ?
+                                SFSymbols.magnifyGlassMinus.rawValue :
+                                SFSymbols.magnifyGlassPlus.rawValue
+                        )
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Assets.colors(.brand))
                     }
                 )
                 .navigationBarTitle("Second Wallet", displayMode: .inline)

@@ -18,7 +18,7 @@ struct CardView: View {
         HStack {
             VStack(alignment: .leading, spacing: 20) {
                 if flipped {
-                    CardDetails(viewModel: CardDetailViewModel(card: viewModel.card), countdown: $countdown)
+                    CardDetails(viewModel: viewModel, countdown: $countdown)
                         .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
                 } else {
                     CardPreview(viewModel: viewModel)
@@ -40,28 +40,34 @@ struct CardView: View {
                 countdown = 180
                 timeout()
             }
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            UIApplication.shared.sendAction(
+                #selector(UIResponder.resignFirstResponder),
+                to: nil,
+                from: nil,
+                for: nil
+            )
         }
         .contextMenu {
             if !flipped {
-                Button("Edit", action: {
-                    actions(.edit)
-                    
-//                    CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
-//                        if result {
-//                            actions(.edit)
-//                        }
-//                    }
-                })
+                Button(action: {
+                    viewModel.checkBiometric { (result) in
+                        if result {
+                            actions(.edit)
+                        }
+                    }
+                }) {
+                    Text("Edit")
+                }
                 
-                Button("Delete", action: {
-                    //                actions(.delete)
-                    CardDetailViewModel(card: viewModel.card).checkBiometric { (result) in
+                Button(action: {
+                    viewModel.checkBiometric { (result) in
                         if result {
                             actions(.delete)
                         }
                     }
-                })
+                }) {
+                    Text("Delete")
+                }
             }
         }
         .onReceive(

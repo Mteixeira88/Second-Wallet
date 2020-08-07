@@ -8,21 +8,25 @@ struct AddNewCard: View {
     
     var body: some View {
         VStack {
-            Button("\(Image(systemName: "plus")) Add new card", action: {
+            Button(action: {
                 newCardViewModel.resetForm()
                 showNewCard.toggle()
-            })
-            .foregroundColor(Color("brand"))
+            }) {
+                Text("\(Assets.systemIcon(.plus)) Add new card")
+            }
+            .foregroundColor(Assets.colors(.brand))
         }
         .sheet(isPresented: $showNewCard, content: {
             VStack {
                 NewCardFormView(viewModel: newCardViewModel)
                 HStack(spacing: 20) {
                     Spacer()
-                    Button("Cancel", action: {
+                    Button(action: {
                         showNewCard.toggle()
-                    })
-                    Button("Confirm", action: {
+                    }) {
+                        Text("Cancel")
+                    }
+                    Button(action: {
                         if !newCardViewModel.validateForm() {
                             return
                         }
@@ -31,7 +35,9 @@ struct AddNewCard: View {
                             secureFields: newCardViewModel.createSecureFieds()
                         )
                         showNewCard.toggle()
-                    })
+                    }) {
+                        Text("Confirm")
+                    }
                 }
                 .padding()
             }

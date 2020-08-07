@@ -114,7 +114,10 @@ class CardsListViewModel: ObservableObject {
             return
         }
 
-        cards = filterCard.filter({ $0.brand.lowercased().contains(query.lowercased()) })
+        cards = filterCard.filter({
+            $0.brand.lowercased().contains(query.lowercased()) ||
+                $0.tag.lowercased().contains(query.lowercased())
+        })
     }
 }
 

@@ -9,10 +9,11 @@ struct CardListView: View {
     @State var editCardModel = CardModel(tag: "", brand: "", backgroundColor: "")
     
     var body: some View {
+        Text("Tap card for details")
+            .font(.subheadline)
+            .foregroundColor(Color(UIColor.systemGray2))
+            .padding(.top, 10)
         ScrollView(showsIndicators: false) {
-            Text("Tap card for details")
-                .font(.body)
-                .foregroundColor(Color(UIColor.systemGray2))
             LazyVGrid(columns: adaptiveLayout, spacing: 20) {
                 ForEach(viewModel.cards) { card in
                     CardView(viewModel: CardViewModel(card: card)) { actions in
@@ -25,13 +26,10 @@ struct CardListView: View {
                             editMode.toggle()
                         }
                     }
-//                    .transition(.move(edge: .top))
-//                    .animation(.default)
                 }
             }
         }
         .resignKeyboardOnDragGesture()
-        .padding(.top, 10)
         .sheet(isPresented: $editMode, content: {
             VStack {
                 NewCardFormView(viewModel: editCardFormModel)

@@ -13,7 +13,10 @@ struct HomeView: View {
             if viewModel.cards.isEmpty,
                !isSearching {
                 VStack {
+                    EmptyView()
+                        .padding()
                     AddNewCard(viewModel: viewModel)
+                    Spacer()
                 }
             } else {
                 ZStack {

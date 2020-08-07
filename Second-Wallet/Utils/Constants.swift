@@ -12,6 +12,8 @@ enum SFSymbols: String {
     case lockerOpen = "lock.open.fill"
     
     case xmark = "xmark.circle.fill"
+    
+    case info = "info.circle.fill"
 }
 
 enum Colors: String {
@@ -19,6 +21,7 @@ enum Colors: String {
     case inputBackground = "inputBackground"
     case inputError = "inputError"
     case inputErrorLabel = "inputErrorLabel"
+    case brandOpaque = "brandOpaque"
 }
 
 enum Assets {

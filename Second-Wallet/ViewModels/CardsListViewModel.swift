@@ -123,19 +123,18 @@ class CardsListViewModel: ObservableObject {
 
 // Preview purposes
 let cardsPreview = [
-    CardModel(id: UUID().uuidString, digits: "123", tag: "Banco", brand: "Bankinter", backgroundColor: "whiteColor",
+    CardModel(id: UUID().uuidString, digits: "123", tag: "Banco", brand: "Bankinter", backgroundColor: UIColor(Assets.colors(.brand)).toHexString(),
               secureFields: [
                   SecureFieldModel(title: "I'm a title", value: "123123"),
                   SecureFieldModel(title: "I'm a title 2", value: "3333"),
                   SecureFieldModel(title: "I'm a title 3", value: "44444")
               ]),
-    CardModel(id: UUID().uuidString, tag: "Telefone", brand: "Vodafone", backgroundColor: "whiteColor",
+    CardModel(id: UUID().uuidString, tag: "Telefone", brand: "Vodafone", backgroundColor: UIColor.red.toHexString(),
               secureFields: [
-                  SecureFieldModel(title: "I'm a title", value: "123123"),
-                  SecureFieldModel(title: "I'm a title 2", value: "3333"),
-                  SecureFieldModel(title: "I'm a title 3", value: "44444")
+                  SecureFieldModel(title: "Pin", value: "1234"),
+                  SecureFieldModel(title: "Puk", value: "111122223333")
               ]),
-    CardModel(id: UUID().uuidString, tag: "House codes", brand: "Dierre", backgroundColor: "whiteColor",
+    CardModel(id: UUID().uuidString, tag: "House codes", brand: "Dierre", backgroundColor: UIColor.blue.toHexString(),
               secureFields: [
                   SecureFieldModel(title: "I'm a title", value: "123123"),
                   SecureFieldModel(title: "I'm a title 2", value: "3333"),

@@ -1,17 +1,17 @@
 /* No comment provided by engineer. */
-"#%@ Secure Field title" = "#%@ Secure Field titlesfdfd";
+"Secure Field title" = "Item's Title";
 
 /* No comment provided by engineer. */
-"#%@ Secure Field value" = "#%@ Secure Field value";
+"Secure Field value" = "Item's private info";
 
 /* No comment provided by engineer. */
 "%@ Add new card" = "%@ Add new card";
 
 /* No comment provided by engineer. */
-"%@ Add secure field" = "%@ Add secure field";
+"%@ Add secure field" = "%@ Add item";
 
 /* No comment provided by engineer. */
-"%@ Remove field" = "%@ Remove field";
+"%@ Remove field" = "%@ Remove item";
 
 /* No comment provided by engineer. */
 "%@ sec" = "%@ sec";
@@ -29,7 +29,10 @@
 "Confirm" = "Confirm";
 
 /* No comment provided by engineer. */
-"Create card" = "Create card";
+"%@ General Info" = "%@ General info";
+
+/* No comment provided by engineer. */
+"%@ Card's safe" = "%@ Private data";
 
 /* No comment provided by engineer. */
 "Delete" = "Delete";
@@ -50,22 +53,22 @@
 "eg: Vodafone, American Express, Dierre" = "eg: Vodafone, American Express, Dierre";
 
 /* No comment provided by engineer. */
-"Error brand" = "Error brand";
+"Error brand" = "Must have betweeen 1 and 30 chars";
 
 /* No comment provided by engineer. */
-"Error digits" = "Error digits";
+"Error digits" = "Must have exactly 4 chars";
 
 /* No comment provided by engineer. */
 "Error search" = "Error search";
 
 /* No comment provided by engineer. */
-"Error secure title" = "Error secure title";
+"Error secure title" = "Must have at least 1 char";
 
 /* No comment provided by engineer. */
-"Error secure value" = "Error secure value";
+"Error secure value" = "Must have at least 1 char";
 
 /* No comment provided by engineer. */
-"Error tag" = "Error tag";
+"Error tag" = "Must have betweeen 1 and 20 chars";
 
 /* No comment provided by engineer. */
 "Four digits" = "Four digits";
@@ -74,8 +77,11 @@
 "Search" = "Search";
 
 /* No comment provided by engineer. */
-"Tag" = "Tag";
+"Tap card for details" = "Tap card for details";
 
 /* No comment provided by engineer. */
-"Tap card for details" = "Tap card for details";
+"Tag" = "Tag";
+
+
+
 

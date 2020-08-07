@@ -1,17 +1,17 @@
 /* No comment provided by engineer. */
-"#%@ Secure Field title" = "#%@ Título campo de segurança";
+"Secure Field title" = "Título do detalhe";
 
 /* No comment provided by engineer. */
-"#%@ Secure Field value" = "#%@ Valor campo de segurança";
+"Secure Field value" = "Campo privado do detalhe";
 
 /* No comment provided by engineer. */
 "%@ Add new card" = "%@ Adicionar cartão";
 
 /* No comment provided by engineer. */
-"%@ Add secure field" = "%@ Adicionar campo";
+"%@ Add secure field" = "%@ Adicionar detalhe";
 
 /* No comment provided by engineer. */
-"%@ Remove field" = "%@ Remover campo";
+"%@ Remove field" = "%@ Remover detalhe";
 
 /* No comment provided by engineer. */
 "%@ sec" = "%@ seg/s";
@@ -29,10 +29,10 @@
 "Confirm" = "Confirmar";
 
 /* No comment provided by engineer. */
-"Card's Front" = "Cartão - Frente";
+"%@ General Info" = "%@ Informação geral";
 
 /* No comment provided by engineer. */
-"Card's Back" = "Cartão - Trás";
+"%@ Card's safe" = "%@ Dados privados";
 
 /* No comment provided by engineer. */
 "Delete" = "Apagar";
@@ -50,25 +50,25 @@
 "eg: System Pin, Pin, Puk" = "ex: System Pin, Pin, Puk";
 
 /* No comment provided by engineer. */
-"eg: Vodafone, American Express, Dierre" = "ex: Vodafone, Estado Português, Dierre, Edenred";
+"eg: Vodafone, American Express, Dierre" = "ex: Vodafone, Estado, Edenred";
 
 /* No comment provided by engineer. */
-"Error brand" = "Error brand";
+"Error brand" = "Deve conter entre 1 e 30 caracteres";
 
 /* No comment provided by engineer. */
-"Error digits" = "Error digits";
+"Error digits" = "Deve conter 4 caracteres";
 
 /* No comment provided by engineer. */
 "Error search" = "Error search";
 
 /* No comment provided by engineer. */
-"Error secure title" = "Error secure title";
+"Error secure title" = "Deve conter no minimo 1 caracter";
 
 /* No comment provided by engineer. */
-"Error secure value" = "Error secure value";
+"Error secure value" = "Deve conter no minimo 1 caracter";
 
 /* No comment provided by engineer. */
-"Error tag" = "Error tag";
+"Error tag" = "Deve conter entre 1 e 20 caracteres";
 
 /* No comment provided by engineer. */
 "Four digits" = "4 digitos";
@@ -77,7 +77,7 @@
 "Search" = "Procurar";
 
 /* No comment provided by engineer. */
-"Tap card for details" = "Clica no cartão para detalhes";
+"Tap card for details" = "Toque no cartão para detalhes";
 
 /* No comment provided by engineer. */
 "Tag" = "Tag";

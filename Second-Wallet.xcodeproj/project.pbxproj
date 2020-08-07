@@ -17,6 +17,7 @@
 		279CDB9B24D96288000FD042 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279CDB9A24D96288000FD042 /* SearchBarView.swift */; };
 		279CDB9D24D96746000FD042 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279CDB9C24D96746000FD042 /* UIApplication+Ext.swift */; };
 		279CDBA124D96847000FD042 /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279CDBA024D96847000FD042 /* ResignKeyboardOnDragGesture.swift */; };
+		27B2048824DD9E1F00E247C1 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B2048724DD9E1F00E247C1 /* EmptyView.swift */; };
 		27C886A824D19A5B000AD21A /* Second_WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A724D19A5B000AD21A /* Second_WalletApp.swift */; };
 		27C886AA24D19A5B000AD21A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C886A924D19A5B000AD21A /* HomeView.swift */; };
 		27C886AC24D19A5C000AD21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C886AB24D19A5C000AD21A /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		279CDB9A24D96288000FD042 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		279CDB9C24D96746000FD042 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		279CDBA024D96847000FD042 /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
+		27B2048724DD9E1F00E247C1 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		27C886A424D19A5B000AD21A /* Second-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Second-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C886A724D19A5B000AD21A /* Second_WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second_WalletApp.swift; sourceTree = "<group>"; };
 		27C886A924D19A5B000AD21A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		27C886E724D1DB51000AD21A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		27C886EA24D1DEF7000AD21A /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		27C886EC24D1E5A2000AD21A /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		27C8F55624DD69DB00BB25E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27D0469024D2FCE00085E8FF /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		27D0469224D301A50085E8FF /* NewCardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardFormView.swift; sourceTree = "<group>"; };
 		27D0469524D308EC0085E8FF /* TextField+Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Modifier.swift"; sourceTree = "<group>"; };
@@ -300,6 +303,7 @@
 				271D987624D4924900722A19 /* CardDetails.swift */,
 				279CDB9824D88794000FD042 /* CardPreview.swift */,
 				279CDB9A24D96288000FD042 /* SearchBarView.swift */,
+				27B2048724DD9E1F00E247C1 /* EmptyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -625,6 +629,7 @@
 				27E0F9C324DAF6BE006593E5 /* SecurityFieldRepository.swift in Sources */,
 				27C886A824D19A5B000AD21A /* Second_WalletApp.swift in Sources */,
 				2748936A24DCB8E9005FBE1F /* Constants.swift in Sources */,
+				27B2048824DD9E1F00E247C1 /* EmptyView.swift in Sources */,
 				279CDBA124D96847000FD042 /* ResignKeyboardOnDragGesture.swift in Sources */,
 				27C886DC24D19F4C000AD21A /* SecureFieldModel+Ext.swift in Sources */,
 				027524D2D33945528EF9378D /* AmplifyModels.swift in Sources */,
@@ -686,6 +691,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				274B56E624DD3E9600E01610 /* pt-PT */,
+				27C8F55624DD69DB00BB25E6 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

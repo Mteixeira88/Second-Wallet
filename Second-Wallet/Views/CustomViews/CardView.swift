@@ -7,12 +7,13 @@ enum ContextMenuActions {
 
 struct CardView: View {
     var viewModel: CardViewModel
-    @State var flipped = false
-    @State var countdown = 180
-    
-    @State var timer: Timer?
     
     var actions: (ContextMenuActions) -> Void
+    
+    @State private var flipped = false
+    @State private var countdown = 180
+    
+    @State private var timer: Timer?
     
     var body: some View {
         HStack {

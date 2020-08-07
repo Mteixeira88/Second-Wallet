@@ -29,7 +29,10 @@
 "Confirm" = "Confirmar";
 
 /* No comment provided by engineer. */
-"Create card" = "Criar cartão";
+"Card's Front" = "Cartão - Frente";
+
+/* No comment provided by engineer. */
+"Card's Back" = "Cartão - Trás";
 
 /* No comment provided by engineer. */
 "Delete" = "Apagar";

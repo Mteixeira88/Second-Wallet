@@ -19,7 +19,10 @@ struct CardView: View {
             VStack(alignment: .leading, spacing: 20) {
                 if flipped {
                     CardDetails(viewModel: viewModel, countdown: $countdown)
-                        .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
+                        .rotation3DEffect(
+                            .degrees(self.flipped ? 180 : 0.0),
+                            axis: (x: 0.0, y: 1.0, z: 0.0)
+                        )
                 } else {
                     CardPreview(viewModel: viewModel)
                 }
@@ -75,7 +78,10 @@ struct CardView: View {
                 for: UIApplication.didEnterBackgroundNotification)) { _ in
             flipped = false
         }
-        .rotation3DEffect(.degrees(self.flipped ? 180 : 0.0), axis: (x: 0.0, y: 1.0, z: 0.0))
+        .rotation3DEffect(
+            .degrees(self.flipped ? 180 : 0.0),
+            axis: (x: 0.0, y: 1.0, z: 0.0)
+        )
         .animation(.default)
     }
     

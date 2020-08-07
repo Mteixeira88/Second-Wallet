@@ -6,10 +6,11 @@ struct NewCardFormView: View {
     
     var body: some View {
         ScrollView() {
-            VStack(alignment: .leading) {
-                Text("Create card")
-                    .font(.title)
+            HStack() {
+                Text("Card's Front")
+                    .font(.title3)
                     .fontWeight(.semibold)
+                Spacer()
             }
             .padding()
             
@@ -92,6 +93,15 @@ struct NewCardFormView: View {
             .padding()
             
             Divider()
+            
+            HStack() {
+                Text("Card's Back")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
             
             HStack {
                 Spacer()

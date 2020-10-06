@@ -41,6 +41,7 @@
 		27E0F9C324DAF6BE006593E5 /* SecurityFieldRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F9C224DAF6BE006593E5 /* SecurityFieldRepository.swift */; };
 		4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */; };
 		65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */; };
+		70E122BA252CAD5A004911BB /* amplifytools.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 70E122B9252CAD5A004911BB /* amplifytools.xcconfig */; };
 		96F36B9DF7A54205B7705441 /* SecureFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */; };
 		AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */; };
 		C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */; };
@@ -70,7 +71,6 @@
 		081AF1E605270C6DDF707486 /* Pods_Second_WalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_WalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		09F15E1A35F34C60BED9A2F4 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
-		1BFEA07057E547069E8BA5B8 /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
 		271D987624D4924900722A19 /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
 		2748936924DCB8E9005FBE1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		274B56E624DD3E9600E01610 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -112,6 +112,7 @@
 		3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-WalletTests.release.xcconfig"; path = "Target Support Files/Pods-Second-WalletTests/Pods-Second-WalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F9DC71086054E169F8389E9 /* CardModel.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = amplify/generated/models/CardModel.swift; sourceTree = "<group>"; };
+		70E122B9252CAD5A004911BB /* amplifytools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = SOURCE_ROOT; };
 		70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		775754179ED14C73BBC4721C /* schema.graphql */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/amplifyDatasource/schema.graphql; sourceTree = "<group>"; };
 		8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet-Second-WalletUITests.release.xcconfig"; path = "Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,7 +154,7 @@
 		09792A24C232453D8F1D9A95 /* AmplifyConfig */ = {
 			isa = PBXGroup;
 			children = (
-				1BFEA07057E547069E8BA5B8 /* amplifytools.xcconfig */,
+				70E122B9252CAD5A004911BB /* amplifytools.xcconfig */,
 				E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */,
 				C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */,
 				775754179ED14C73BBC4721C /* schema.graphql */,
@@ -371,8 +372,8 @@
 			buildConfigurationList = 27C886C924D19A5C000AD21A /* Build configuration list for PBXNativeTarget "Second-Wallet" */;
 			buildPhases = (
 				16E727383AE4506444C90ACD /* [CP] Check Pods Manifest.lock */,
-				27C886A024D19A5B000AD21A /* Sources */,
 				27C886D224D19AB1000AD21A /* Run Amplify Tools */,
+				27C886A024D19A5B000AD21A /* Sources */,
 				27C886A124D19A5B000AD21A /* Frameworks */,
 				27C886A224D19A5B000AD21A /* Resources */,
 				6EC1E470A606661992109BF7 /* [CP] Embed Pods Frameworks */,
@@ -477,6 +478,7 @@
 				27C886AF24D19A5C000AD21A /* Preview Assets.xcassets in Resources */,
 				27C886AC24D19A5C000AD21A /* Assets.xcassets in Resources */,
 				AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */,
+				70E122BA252CAD5A004911BB /* amplifytools.xcconfig in Resources */,
 				C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

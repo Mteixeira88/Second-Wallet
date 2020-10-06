@@ -5,7 +5,6 @@ import AmplifyPlugins
 
 @main
 struct Second_WalletApp: App {
-    
     @StateObject private var cardViewModel = CardsListViewModel()
     
     init() {

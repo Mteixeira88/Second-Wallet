@@ -1,10 +1,3 @@
-//
-//  EmptyView.swift
-//  Second-Wallet
-//
-//  Created by Miguel Teixeira on 07/08/2020.
-//
-
 import SwiftUI
 
 struct EmptyView: View {

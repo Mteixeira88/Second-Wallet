@@ -9,5 +9,12 @@ Because all information is kept locally, you don't need to worry about getting c
 
 ## iOS Downloads
 
-<a href="https://apps.apple.com/us/app/id1534334074"><img alt="" src="/appStoreButton_2.png"></a>
+<a href="https://apps.apple.com/us/app/id1534334074"><img alt="" src="/appStoreButton.png"></a>
+
+## Previews
+
+<img alt="" src="/0.png">
+<img alt="" src="/1.png">
+<img alt="" src="/2.png">
+<img alt="" src="/3.png">
 

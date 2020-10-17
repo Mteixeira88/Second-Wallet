@@ -9,11 +9,12 @@ struct CardView: View {
     var viewModel: CardViewModel
     
     var actions: (ContextMenuActions) -> Void
+    var isFlipped: (Bool)->Void
     
-    @State private var flipped = false
-    @State private var countdown = 180
+    @State private(set) var flipped = false
+    @State private(set) var countdown = 180
     
-    @State private var timer: Timer?
+    @State private(set) var timer: Timer?
     
     var body: some View {
         HStack {
@@ -37,6 +38,7 @@ struct CardView: View {
         .cornerRadius(8)
         .onTapGesture {
             flipped.toggle()
+            isFlipped(flipped)
             if timer != nil {
                 timer!.invalidate()
             }
@@ -78,6 +80,7 @@ struct CardView: View {
             NotificationCenter.default.publisher(
                 for: UIApplication.didEnterBackgroundNotification)) { _ in
             flipped = false
+            isFlipped(flipped)
         }
         .rotation3DEffect(
             .degrees(self.flipped ? 180 : 0.0),
@@ -93,6 +96,7 @@ struct CardView: View {
             if countdown == 0 {
                 timer.invalidate()
                 flipped = false
+                isFlipped(flipped)
             }
         }
     }
@@ -107,6 +111,8 @@ struct CardView_Previews: PreviewProvider {
             case .edit:
                 break
             }
+        } isFlipped: { state in
+            
         }
     }
 }

@@ -25,8 +25,6 @@ struct HomeView: View {
                     }
                     .padding(.top, showSearch ? 60 : 0)
                     .padding(.bottom, 60)
-                    .transition(.move(edge: .top))
-                    .animation(.default)
                     VStack {
                         if showSearch {
                             SearchBarView(

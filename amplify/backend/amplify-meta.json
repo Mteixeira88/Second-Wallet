@@ -1,0 +1,33 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-second-wallet-dev-144157-authRole",
+      "UnauthRoleArn": "arn:aws:iam::905096907272:role/amplify-second-wallet-dev-144157-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::905096907272:role/amplify-second-wallet-dev-144157-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-second-wallet-dev-144157-deployment",
+      "UnauthRoleName": "amplify-second-wallet-dev-144157-unauthRole",
+      "StackName": "amplify-second-wallet-dev-144157",
+      "StackId": "arn:aws:cloudformation:us-east-1:905096907272:stack/amplify-second-wallet-dev-144157/b5f65710-07d9-11eb-9284-0a3d3edde975",
+      "AmplifyAppId": "d3l8wu0o2dpq71"
+    }
+  },
+  "api": {
+    "amplifyDatasource": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "description": "",
+              "apiKeyExpirationDays": 7
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -38,6 +38,8 @@ struct EmptyView: View {
                     case .edit, .delete:
                         break
                     }
+                } isFlipped: { state in
+                    
                 }
             }
 //            .redacted(reason: .placeholder)

@@ -22,10 +22,6 @@ struct CardPreview: View {
                     .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
             }
             Spacer()
-            
-//            Text(viewModel.date)
-//                .font(.caption)
-//                .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
         }
     }
 }

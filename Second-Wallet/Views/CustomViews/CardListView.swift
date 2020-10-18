@@ -17,6 +17,8 @@ struct CardListView: View {
             .font(.subheadline)
             .foregroundColor(Color(UIColor.systemGray2))
             .padding(.top, 10)
+            .opacity(flippedCard ? 0 : 1)
+            .animation(.easeInOut)
         GeometryReader { fullView in
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: adaptiveLayout, spacing: 20) {

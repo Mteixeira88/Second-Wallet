@@ -14,6 +14,10 @@ enum SFSymbols: String {
     case xmark = "xmark.circle.fill"
     
     case info = "info.circle.fill"
+    case clipboard = "doc.on.clipboard.fill"
+    
+    case eye = "eye.fill"
+    case eyeSlash = "eye.slash.fill"
 }
 
 enum Colors: String {

@@ -26,18 +26,18 @@ struct NewCardFormView: View {
                         "eg: Last 4 digits",
                         text: $viewModel.formModel.digits
                     )
-                        .disableAutocorrection(true)
-                        .disabled(!viewModel.formModel.digitsIsEnable)
-                        .textField(
-                            error: TextFieldErrorModifierModel(
-                                showError: $viewModel.formModel.errorDigits,
-                                message: Text("Error digits")
-                            )
+                    .disableAutocorrection(true)
+                    .disabled(!viewModel.formModel.digitsIsEnable)
+                    .textField(
+                        error: TextFieldErrorModifierModel(
+                            showError: $viewModel.formModel.errorDigits,
+                            message: Text("Error digits")
                         )
-                        .opacity(viewModel.formModel.digitsIsEnable ? 1 : 0.5)
-                        .onChange(of: viewModel.formModel.digits) { newValue in
-                            viewModel.formModel.errorDigits = false
-                        }
+                    )
+                    .opacity(viewModel.formModel.digitsIsEnable ? 1 : 0.5)
+                    .onChange(of: viewModel.formModel.digits) { newValue in
+                        viewModel.formModel.errorDigits = false
+                    }
                     
                 }
                 
@@ -45,39 +45,39 @@ struct NewCardFormView: View {
                     "eg: Mobile, Door duplication card, Debit",
                     text: $viewModel.formModel.tag
                 )
-                    .textField(
-                        model: TextFieldModifierModel(
-                            label: Text("Tag"),
-                            bottomLabel: "max: 30 chars"
-                        ),
-                        error: TextFieldErrorModifierModel(
-                            showError: $viewModel.formModel.errorTag,
-                            message: Text("Error tag")
-                        )
+                .textField(
+                    model: TextFieldModifierModel(
+                        label: Text("Tag"),
+                        bottomLabel: "max: 30 chars"
+                    ),
+                    error: TextFieldErrorModifierModel(
+                        showError: $viewModel.formModel.errorTag,
+                        message: Text("Error tag")
                     )
-                    .disableAutocorrection(true)
-                    .onChange(of: viewModel.formModel.tag) { newValue in
-                        viewModel.formModel.errorTag = false
-                    }
+                )
+                .disableAutocorrection(true)
+                .onChange(of: viewModel.formModel.tag) { newValue in
+                    viewModel.formModel.errorTag = false
+                }
                 
                 TextField(
                     "eg: Vodafone, American Express, Dierre",
                     text: $viewModel.formModel.brand
                 )
-                    .textField(
-                        model: TextFieldModifierModel(
-                            label: Text("Brand"),
-                            bottomLabel: "max: 20 chars"
-                        ),
-                        error: TextFieldErrorModifierModel(
-                            showError: $viewModel.formModel.errorBrand,
-                            message: Text("Error brand")
-                        )
+                .textField(
+                    model: TextFieldModifierModel(
+                        label: Text("Brand"),
+                        bottomLabel: "max: 20 chars"
+                    ),
+                    error: TextFieldErrorModifierModel(
+                        showError: $viewModel.formModel.errorBrand,
+                        message: Text("Error brand")
                     )
-                    .disableAutocorrection(true)
-                    .onChange(of: viewModel.formModel.brand) { newValue in
-                        viewModel.formModel.errorBrand = false
-                    }
+                )
+                .disableAutocorrection(true)
+                .onChange(of: viewModel.formModel.brand) { newValue in
+                    viewModel.formModel.errorBrand = false
+                }
                 
                 VStack(alignment: .leading) {
                     Text("Background color")
@@ -144,23 +144,58 @@ struct NewCardFormView: View {
                                 viewModel.formModel.secureFields[index].error = false
                             }
                             .disableAutocorrection(true)
-                        SecureField(
-                            "eg: 15121",
-                            text:  $viewModel.formModel.secureFields[index].value
-                        )
-                        .textField(
-                            model: TextFieldModifierModel(
-                                label: Text("#\(index + 1) - \(Text("Secure Field value"))"),
-                                bottomLabel: nil
-                            ),
-                            error: TextFieldErrorModifierModel(
-                                showError: $viewModel.formModel.secureFields[index].error,
-                                message: Text("Error secure value")
-                            )
-                        )
-                        .disableAutocorrection(true)
-                        .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
-                            viewModel.formModel.secureFields[index].error = false
+                        if viewModel.formModel.secureFields[index].showPassword {
+                            HStack(alignment: .center, spacing: 15) {
+                                TextField(
+                                    "eg: 15121",
+                                    text:  $viewModel.formModel.secureFields[index].value
+                                )
+                                .textField(
+                                    model: TextFieldModifierModel(
+                                        label: Text("#\(index + 1) - \(Text("Secure Field value"))"),
+                                        bottomLabel: nil
+                                    ),
+                                    error: TextFieldErrorModifierModel(
+                                        showError: $viewModel.formModel.secureFields[index].error,
+                                        message: Text("Error secure value")
+                                    )
+                                )
+                                .disableAutocorrection(true)
+                                .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
+                                    viewModel.formModel.secureFields[index].error = false
+                                }
+                                Image(systemName: SFSymbols.eyeSlash.rawValue)
+                                    .onTapGesture {
+                                        viewModel.formModel.secureFields[index].showPassword = false
+                                    }
+                                    .offset(y: 15)
+                            }
+                        } else {
+                            HStack(alignment: .center, spacing: 15) {
+                                SecureField(
+                                    "eg: 15121",
+                                    text:  $viewModel.formModel.secureFields[index].value
+                                )
+                                .textField(
+                                    model: TextFieldModifierModel(
+                                        label: Text("#\(index + 1) - \(Text("Secure Field value"))"),
+                                        bottomLabel: nil
+                                    ),
+                                    error: TextFieldErrorModifierModel(
+                                        showError: $viewModel.formModel.secureFields[index].error,
+                                        message: Text("Error secure value")
+                                    )
+                                )
+                                .disableAutocorrection(true)
+                                .onChange(of: viewModel.formModel.secureFields[index].value) { newValue in
+                                    viewModel.formModel.secureFields[index].error = false
+                                }
+                                Image(systemName: SFSymbols.eye.rawValue)
+                                    .onTapGesture {
+                                        viewModel.formModel.secureFields[index].showPassword = true
+                                    }
+                                    .offset(y: 15)
+                            }
                         }
                     }
                     .padding(10)

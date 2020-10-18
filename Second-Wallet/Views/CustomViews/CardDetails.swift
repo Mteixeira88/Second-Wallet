@@ -7,11 +7,12 @@ struct CardDetails: View {
     @State private(set) var showSecureFields = false
     
     @State private(set) var listHeight = 0
+    @State private(set) var secureValue: String? = nil
     
     @Binding var countdown: Int
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(alignment: .leading, spacing: 15) {
             HStack(alignment: .bottom) {
                 Text("\(countdown) sec")
                     .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
@@ -48,7 +49,12 @@ struct CardDetails: View {
                 .padding(.horizontal)
             ScrollView {
                 ForEach(viewModel.secureFields) { secure in
-                    VStack {
+                    Button(action: {
+                        if showSecureFields {
+                            secureValue = secure.title
+                            viewModel.copyToClipboard(secure.value)
+                        }
+                    }) {
                         HStack {
                             Text(secure.title)
                                 .foregroundColor(Color(UIColor.label))
@@ -70,14 +76,26 @@ struct CardDetails: View {
                     listHeight = (50 * viewModel.secureFields.count) < 300 ? (50 * viewModel.secureFields.count) : 300
                 }
             }
-            Text("\(Image(systemName: SFSymbols.info.rawValue)) Tap the card anywhere to exit the details.")
+            Text("\(Image(systemName: SFSymbols.info.rawValue)) Tap the card detail to copy to clipboard")
                 .font(.caption)
                 .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
-                .frame(height: 16)
-                .offset(y: -25)
+                .frame(height: showSecureFields ? 16 : 0)
+                .opacity(showSecureFields ? 1 : 0)
                 .padding(.horizontal)
-//                .opacity(showSecureFields ? 1 : 0)
-//                .animation(.easeInOut)
+                .animation(.easeInOut)
+            if let secure = secureValue {
+                Text("\(Image(systemName: SFSymbols.clipboard.rawValue)) \(secure) copied to clipboard")
+                    .font(.caption)
+                    .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
+                    .frame(height: 40)
+                    .padding(.horizontal)
+                    .onAppear() {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            secureValue = nil
+                        }
+                    }
+                    .animation(.easeInOut)
+            }
         }
     }
 }

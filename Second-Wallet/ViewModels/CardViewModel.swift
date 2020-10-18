@@ -30,6 +30,11 @@ struct CardViewModel {
         }
         
     }
+    
+    func copyToClipboard(_ text: String) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = text
+    }
 }
 
 extension CardViewModel {

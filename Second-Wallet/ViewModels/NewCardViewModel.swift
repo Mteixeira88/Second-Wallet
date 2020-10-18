@@ -17,12 +17,14 @@ struct SecureFieldsViewModel {
     var id: String
     var title: String
     var value: String
+    var showPassword: Bool
     var error: Bool
     
     init(id: String = UUID().uuidString, title: String = "", value: String = "") {
         self.id = id
         self.title = title
         self.value = value
+        self.showPassword = false
         self.error = false
     }
 }

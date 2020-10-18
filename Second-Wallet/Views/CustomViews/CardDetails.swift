@@ -70,14 +70,14 @@ struct CardDetails: View {
                     listHeight = (50 * viewModel.secureFields.count) < 300 ? (50 * viewModel.secureFields.count) : 300
                 }
             }
-            Text("Tap the card detail to copy to clipboard.")
+            Text("\(Image(systemName: SFSymbols.info.rawValue)) Tap the card anywhere to exit the details.")
                 .font(.caption)
                 .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
-                .frame(height: showSecureFields ? 12 : 0)
-                .offset(y: -15)
+                .frame(height: 16)
+                .offset(y: -25)
                 .padding(.horizontal)
-                .opacity(showSecureFields ? 1 : 0)
-                .animation(.easeInOut)
+//                .opacity(showSecureFields ? 1 : 0)
+//                .animation(.easeInOut)
         }
     }
 }

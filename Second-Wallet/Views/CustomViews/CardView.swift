@@ -27,13 +27,12 @@ struct CardView: View {
                         )
                 } else {
                     CardPreview(viewModel: viewModel)
+                        .padding(.vertical, 24)
+                        .padding(.horizontal, 16)
                 }
-                
+                Spacer()
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 16)
         }
-        .frame(minWidth: 200, maxWidth: .infinity, minHeight: 200, maxHeight: 200)
         .background(Color(viewModel.backgroundColor))
         .cornerRadius(8)
         .onTapGesture {

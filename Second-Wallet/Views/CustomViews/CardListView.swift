@@ -36,7 +36,8 @@ struct CardListView: View {
                                 if state {
                                     let area = fullView.frame(in: CoordinateSpace.global)
                                     let frame = gp.frame(in: CoordinateSpace.global)
-                                    position = CGPoint(x: -2, y: (area.height / 2) - frame.minY - 60)
+//                                    (area.height / 2) - frame.minY - 60)
+                                    position = CGPoint(x: -2, y: area.minY - frame.minY + 30)
                                 }
                                 
                                 withAnimation {

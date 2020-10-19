@@ -71,6 +71,7 @@ struct HomeView: View {
                 .navigationBarTitle("Second Wallet", displayMode: .inline)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

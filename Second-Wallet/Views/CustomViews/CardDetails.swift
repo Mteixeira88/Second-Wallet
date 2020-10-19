@@ -5,7 +5,6 @@ struct CardDetails: View {
     var viewModel: CardViewModel
     
     @State private(set) var showSecureFields = false
-    @State private(set) var checkingBiometric = false
     
     @State private(set) var listHeight = 0
     @State private(set) var secureValue: String? = nil
@@ -21,9 +20,7 @@ struct CardDetails: View {
                 
                 Button(action: {
                     if !showSecureFields {
-                        checkingBiometric = true
                         viewModel.checkBiometric { (result) in
-                            checkingBiometric = false
                             showSecureFields = result
                         }
                     } else {

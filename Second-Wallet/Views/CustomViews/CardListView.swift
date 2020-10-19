@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CardListView: View {
-    private(set) var adaptiveLayout = [GridItem(.adaptive(minimum: 300))]
+    private(set) var adaptiveLayout = [GridItem(.adaptive(minimum: 300, maximum: 300))]
     var viewModel: CardsListViewModel
     
     @State var editMode = false
@@ -38,7 +38,6 @@ struct CardListView: View {
                                 if state {
                                     let area = fullView.frame(in: CoordinateSpace.global)
                                     let frame = gp.frame(in: CoordinateSpace.global)
-//                                    (area.height / 2) - frame.minY - 60)
                                     position = CGPoint(x: -2, y: area.minY - frame.minY + 30)
                                 }
                                 
@@ -55,7 +54,7 @@ struct CardListView: View {
                             .blur(radius: flippedCard && selectedCard != card.id ? 20 : 0)
                             .disabled(selectedCard != card.id && selectedCard != "" ? true : false)
                         }
-                        .frame(width: fullView.frame(in: CoordinateSpace.global).width - 20, height: 200)
+                        .frame(height: 200)
                         .zIndex(flippedCard && selectedCard != card.id ? 0 : 1)
                     }
                 }

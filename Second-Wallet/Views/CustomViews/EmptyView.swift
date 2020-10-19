@@ -4,6 +4,7 @@ struct EmptyView: View {
     
     @State private(set) var number = 0
     @State private(set) var cards = cardsPreview
+    @State private(set) var cardHeight: CGFloat = 200
     var body: some View {
         VStack(spacing: 30) {
             VStack {
@@ -19,7 +20,7 @@ struct EmptyView: View {
                     .foregroundColor(Assets.colors(.brand))
             }
             
-            VStack {
+            VStack(spacing: 20) {
                 HStack {
                     Spacer()
                     Button(action: {
@@ -39,8 +40,9 @@ struct EmptyView: View {
                         break
                     }
                 } isFlipped: { state in
-                    
+                    cardHeight = state ? 250 : 200
                 }
+                .frame(height: cardHeight)
             }
 //            .redacted(reason: .placeholder)
         }

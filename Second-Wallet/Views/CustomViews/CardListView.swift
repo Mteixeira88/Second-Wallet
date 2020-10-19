@@ -17,7 +17,7 @@ struct CardListView: View {
             .font(.subheadline)
             .foregroundColor(Color(UIColor.systemGray2))
             .padding(.top, 10)
-            .opacity(flippedCard ? 0 : 1)
+            .blur(radius: flippedCard ? 10 : 0)
             .animation(.easeInOut)
         GeometryReader { fullView in
             ScrollView(showsIndicators: false) {
@@ -46,6 +46,7 @@ struct CardListView: View {
                                     selectedCard = flippedCard ? card.id : ""
                                 }
                             }
+                            
                             .offset(
                                 x: flippedCard && selectedCard == card.id ? position.x : 0,
                                 y: flippedCard && selectedCard == card.id ? position.y : 0

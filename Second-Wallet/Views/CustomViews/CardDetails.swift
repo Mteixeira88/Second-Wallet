@@ -5,6 +5,7 @@ struct CardDetails: View {
     var viewModel: CardViewModel
     
     @State private(set) var showSecureFields = false
+    @State private(set) var checkingBiometric = false
     
     @State private(set) var listHeight = 0
     @State private(set) var secureValue: String? = nil
@@ -20,7 +21,9 @@ struct CardDetails: View {
                 
                 Button(action: {
                     if !showSecureFields {
+                        checkingBiometric = true
                         viewModel.checkBiometric { (result) in
+                            checkingBiometric = false
                             showSecureFields = result
                         }
                     } else {
@@ -76,13 +79,16 @@ struct CardDetails: View {
                     listHeight = (50 * viewModel.secureFields.count) < 300 ? (50 * viewModel.secureFields.count) : 300
                 }
             }
-            Text("\(Image(systemName: SFSymbols.info.rawValue)) Tap the card detail to copy to clipboard")
-                .font(.caption)
-                .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
-                .frame(height: showSecureFields ? 16 : 0)
-                .opacity(showSecureFields ? 1 : 0)
-                .padding(.horizontal)
-                .animation(.easeInOut)
+            HStack {
+                Image(systemName: SFSymbols.info.rawValue)
+                Text("Tap the card detail to copy to clipboard")
+                    .font(.caption)
+            }
+            .foregroundColor(viewModel.backgroundColor.oppositeDarkColor)
+            .frame(height: showSecureFields ? 16 : 0)
+            .opacity(showSecureFields ? 1 : 0)
+            .padding(.horizontal)
+            .animation(.easeInOut)
             if let secure = secureValue {
                 Text("\(Image(systemName: SFSymbols.clipboard.rawValue)) \(secure) copied to clipboard")
                     .font(.caption)

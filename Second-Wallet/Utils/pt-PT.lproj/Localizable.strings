@@ -86,6 +86,11 @@
 /* No comment provided by engineer. */
 "Tag" = "Tag";
 
+"Tap the locker icon and verify your biometric to see the card details." = "Toque no ícone do cadeado e faça a verificação biométrica para aceder aos detalhes do cartão.";
+
+"Tap the card detail to copy to clipboard" = "Copie para o clipboard tocando no detalhe do cartão.";
+
+"copied to clipboard" = "copiado para o clipboard";
 
 
 

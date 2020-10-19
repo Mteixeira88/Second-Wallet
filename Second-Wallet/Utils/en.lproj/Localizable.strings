@@ -86,6 +86,10 @@
 /* No comment provided by engineer. */
 "Tag" = "Tag";
 
+"Tap the locker icon and verify your biometric to see the card details." = "Tap the locker icon and verify your biometric to see the card details.";
 
+"Tap the card detail to copy to clipboard" = "Tap the card detail to copy to clipboard";
+
+"copied to clipboard" = "copied to clipboard";
 
 

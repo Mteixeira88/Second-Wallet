@@ -1,9 +1,13 @@
 # Second-Wallet
-### A new way to save your brain from unnecessary information
+###  The safest and coolest way to save your cards info 
 
-SecondWallet is the alternative for you to not worry anymore about that code you need in that moment!
+Ever wonder if there is a place where to keep that secondary cards numbers and pins without having to remember or get up to get that number every time you need them. 
 
-Because all information is kept locally, you don't need to worry about getting caught in the wrong hands, it will be like protecting ting your own wallet that you carry everyday but instead of having the cards it will have all the details you need to access it.
+SecondWallet is here to help you remember all those details by providing the safest and coolest tool to keep that without you having to concern where you put your wallet. 
+
+Remember, everything is kept on your phone and only you can have access to it. It will be like protecting your own wallet but safer.
+
+<img alt="" src="https://img.shields.io/badge/IOS-%5E14-red"> <img alt="" src="https://img.shields.io/badge/AppStoreReview-1.1-yellow">
 
 <img alt="" src="https://img.shields.io/badge/IOS-%5E14-red"> <img alt="" src="https://img.shields.io/badge/AppStore-1.0-green">
 
@@ -13,8 +17,9 @@ Because all information is kept locally, you don't need to worry about getting c
 
 ## Previews
 
-<img alt="" src="/0.png">
-<img alt="" src="/1.png">
-<img alt="" src="/2.png">
-<img alt="" src="/3.png">
+<img alt="" src="/images/0.png" style="height: 300px">
+<img alt="" src="/images/1.png" style="height: 300px">
+<img alt="" src="/images/2.png" style="height: 300px">
+<img alt="" src="/images/3.png" style="height: 300px">
+<img alt="" src="/images/4.png" style="height: 300px">
 

@@ -13,13 +13,11 @@ Remember, everything is kept on your phone and only you can have access to it. I
 
 ## iOS Downloads
 
-<a href="https://apps.apple.com/us/app/id1534334074"><img alt="" src="/appStoreButton.png"></a>
+<a href="https://apps.apple.com/us/app/id1534334074"><img alt="" src="/images/appStoreButton.png"></a>
 
 ## Previews
 
-<img alt="" src="/images/0.png" style="height: 300px">
-<img alt="" src="/images/1.png" style="height: 300px">
-<img alt="" src="/images/2.png" style="height: 300px">
-<img alt="" src="/images/3.png" style="height: 300px">
-<img alt="" src="/images/4.png" style="height: 300px">
+<img alt="" src="/images/0.png" height="500px"> <img alt="" src="/images/1.png" height="500px"> <img alt="" src="/images/2.png" height="500px">
+
+<img alt="" src="/images/3.png" height="500px"> <img alt="" src="/images/4.png" height="500px">
 

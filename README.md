@@ -7,9 +7,7 @@ SecondWallet is here to help you remember all those details by providing the saf
 
 Remember, everything is kept on your phone and only you can have access to it. It will be like protecting your own wallet but safer.
 
-<img alt="" src="https://img.shields.io/badge/IOS-%5E14-red"> <img alt="" src="https://img.shields.io/badge/AppStoreReview-1.1-yellow">
-
-<img alt="" src="https://img.shields.io/badge/IOS-%5E14-red"> <img alt="" src="https://img.shields.io/badge/AppStore-1.0-green">
+<img alt="" src="https://img.shields.io/badge/IOS-%5E14-red"> <img alt="" src="https://img.shields.io/badge/AppStore-1.1-green">
 
 ## iOS Downloads
 

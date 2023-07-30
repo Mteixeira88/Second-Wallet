@@ -1,6 +1,7 @@
 import Amplify
 import Foundation
 import UIKit
+import AWSDataStorePlugin
 
 class CardsListViewModel: ObservableObject {
     @Published var cards: [CardModel]
@@ -10,15 +11,28 @@ class CardsListViewModel: ObservableObject {
         self.cards = cards
         self.filterCard = cards
         
-        CardRepository.shared.getAll { [weak self] result in
-            switch result {
-            case .success(let cards):
-                self?.cards = cards.reversed()
-                self?.filterCard = cards.reversed()
-            case .failure:
-                fatalError("Something went wrong on init cards")
+        do {
+            try Amplify.add(
+                plugin: AWSDataStorePlugin(modelRegistration: AmplifyModels())
+            )
+            try Amplify.configure()
+            
+            CardRepository.shared.getAll { [weak self] result in
+                switch result {
+                    case .success(let cards):
+                        DispatchQueue.main.async {
+                            self?.cards = cards.reversed()
+                        }
+                        self?.filterCard = cards.reversed()
+                    case .failure:
+                        fatalError("Something went wrong on init cards")
+                }
             }
+        } catch {
+            fatalError("could not initialize Amplify - \(error)")
         }
+        
+        
     }
     
     func createNew(card: CardModel, secureFields: [SecureFieldModel]) {

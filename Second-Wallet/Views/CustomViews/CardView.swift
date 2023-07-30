@@ -6,7 +6,7 @@ enum ContextMenuActions {
 }
 
 struct CardView: View {
-    var viewModel: CardViewModel
+    @ObservedObject var viewModel: CardViewModel
     
     var actions: (ContextMenuActions) -> Void
     var isFlipped: (Bool)->Void

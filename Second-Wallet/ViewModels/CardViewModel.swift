@@ -1,12 +1,42 @@
 import UIKit
 import Amplify
 import LocalAuthentication
+import Foundation
 
-struct CardViewModel {
+class CardViewModel: ObservableObject {
+    
     private(set) var card: CardModel
+    
+    @Published var secureFields: [SecureFieldModel] = []
     
     init(card: CardModel) {
         self.card = card
+        getSecureFields()
+    }
+    
+    func getSecureFields() {
+        
+        Task {
+            try await card.secureFields?.fetch()
+            
+            guard let fields = card.secureFields else {
+                return
+            }
+            
+            let secure: [SecureFieldModel] = fields.map ({ secure in
+                SecureFieldModel(
+                    id: secure.id,
+                    title: secure.title,
+                    value: secure.value,
+                    card: secure.card
+                )
+            })
+            
+            DispatchQueue.main.async {
+                self.secureFields = secure
+            }
+            
+        }
     }
     
     func checkBiometric(
@@ -62,20 +92,5 @@ extension CardViewModel {
     
     var backgroundColor: UIColor {
         return UIColor(hexString: card.backgroundColor) ?? UIColor.blue
-    }
-    
-    var secureFields: [SecureFieldModel] {
-        guard let fields = card.secureFields else {
-            return []
-        }
-        let secure: [SecureFieldModel] = fields.map({ secure in
-            SecureFieldModel(
-                id: secure.id,
-                title: secure.title,
-                value: secure.value,
-                card: secure.card
-            )
-        })
-        return secure
     }
 }

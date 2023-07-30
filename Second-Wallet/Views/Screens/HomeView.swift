@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     private(set) var adaptiveLayout = [GridItem(.adaptive(minimum: 250))]
-    @StateObject var viewModel = CardsListViewModel()
+    @ObservedObject var viewModel = CardsListViewModel()
     
     @State var searchText = ""
     @State var isSearching = false

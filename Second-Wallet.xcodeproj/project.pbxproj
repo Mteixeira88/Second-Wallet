@@ -41,7 +41,6 @@
 		27E0F9C324DAF6BE006593E5 /* SecurityFieldRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F9C224DAF6BE006593E5 /* SecurityFieldRepository.swift */; };
 		4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */; };
 		65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */; };
-		70E122BA252CAD5A004911BB /* amplifytools.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 70E122B9252CAD5A004911BB /* amplifytools.xcconfig */; };
 		96F36B9DF7A54205B7705441 /* SecureFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */; };
 		AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */; };
 		C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */; };
@@ -433,7 +432,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					27C886A324D19A5B000AD21A = {
 						CreatedOnToolsVersion = 12.0;
@@ -478,7 +477,6 @@
 				27C886AF24D19A5C000AD21A /* Preview Assets.xcassets in Resources */,
 				27C886AC24D19A5C000AD21A /* Assets.xcassets in Resources */,
 				AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */,
-				70E122BA252CAD5A004911BB /* amplifytools.xcconfig in Resources */,
 				C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -766,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -824,12 +824,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Second-Wallet/Preview Content\"";
 				DEVELOPMENT_TEAM = U5QL3W6RAW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Second-Wallet/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -837,8 +837,11 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.miguelteixeira.Second-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -849,12 +852,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Second-Wallet/Preview Content\"";
 				DEVELOPMENT_TEAM = U5QL3W6RAW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Second-Wallet/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -862,8 +865,11 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.miguelteixeira.Second-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

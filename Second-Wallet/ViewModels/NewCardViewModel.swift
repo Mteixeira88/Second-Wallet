@@ -184,22 +184,16 @@ class NewCardViewModel: ObservableObject {
         formModel.secureFields.remove(at: index)
         
         if isEditing {
-            Amplify.DataStore.query(SecureFieldModel.self) { result in
-                switch result {
-                case .success(let fields):
-                    guard let deletedCard = fields.first(where: { $0.id == removedSecureField.id }) else {
+            Task {
+                
+                do {
+                    let result = try await Amplify.DataStore.query(SecureFieldModel.self)
+                    guard let deletedCard = result.first(where: { $0.id == removedSecureField.id }) else {
                         debugPrint("Unable to index delete")
                         return
                     }
-                    Amplify.DataStore.delete(deletedCard) { (result) in
-                        switch result {
-                        case .success:
-                            break
-                        case .failure(let error):
-                            debugPrint(error)
-                        }
-                    }
-                case .failure(let error):
+                    try await Amplify.DataStore.delete(deletedCard)
+                } catch {
                     debugPrint("Failed getting all because of: \(error)")
                 }
             }

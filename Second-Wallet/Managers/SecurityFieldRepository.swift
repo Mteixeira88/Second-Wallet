@@ -6,11 +6,13 @@ class SecureFieldRepository: Repository {
     static let shared = SecureFieldRepository()
     
     func getAll(completion: @escaping(Result<[SecureFieldModel], RepositoryError>) -> Void) {
-        Amplify.DataStore.query(SecureFieldModel.self) { result in
-            switch result {
-            case .success(let securityFields):
-                completion(.success(securityFields))
-            case .failure(let error):
+        
+        Task {
+            
+            do {
+                let result = try await Amplify.DataStore.query(SecureFieldModel.self)
+                completion(.success(result))
+            } catch {
                 debugPrint("Failed getting all because of: \(error)")
                 completion(.failure(RepositoryError.unableToGetAll))
             }
@@ -21,17 +23,18 @@ class SecureFieldRepository: Repository {
         identifier: String,
         completion: @escaping(Result<SecureFieldModel, RepositoryError>) -> Void
     ) {
-        Amplify.DataStore.query(SecureFieldModel.self, byId: identifier) { result in
-            switch result {
-            case .success(let card):
-                guard let card = card else {
-                    debugPrint("Failed getting the card \(identifier)")
+        
+        Task {
+            
+            do {
+                guard let result = try await Amplify.DataStore.query(SecureFieldModel.self, byId: identifier) else {
+                    completion(.failure(RepositoryError.unableToGetAll))
                     return
                 }
-                completion(.success(card))
-            case .failure(let error):
-                debugPrint("Failed getting the card \(identifier) because of: \(error)")
-                completion(.failure(RepositoryError.unableToGetOne))
+                completion(.success(result))
+            } catch {
+                debugPrint("Failed getting all because of: \(error)")
+                completion(.failure(RepositoryError.unableToGetAll))
             }
         }
     }
@@ -40,14 +43,13 @@ class SecureFieldRepository: Repository {
         _ model: SecureFieldModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
-        Amplify.DataStore.save(model) { (result) in
-            switch result {
-            case .success:
+        Task {
+            do {
+                try await Amplify.DataStore.save(model)
                 completion(nil)
-            case .failure(let error):
+            } catch {
                 debugPrint("Failed saving todo \(error)")
                 completion(.unableToCreate)
-                
             }
         }
     }
@@ -56,12 +58,12 @@ class SecureFieldRepository: Repository {
         _ model: SecureFieldModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
-        Amplify.DataStore.save(model, where: SecureFieldModel.keys.id.eq(model.id)) { (result) in
-            switch result {
-            case .success:
+        Task {
+            do {
+                try await Amplify.DataStore.save(model, where: CardModel.keys.id.eq(model.id))
                 completion(nil)
-            case .failure(let error):
-                debugPrint("Failed updating todo \(error)")
+            } catch {
+                debugPrint("Failed saving todo \(error)")
                 completion(.unableToUpdate)
             }
         }
@@ -80,12 +82,12 @@ class SecureFieldRepository: Repository {
                     return
                 }
                 
-                Amplify.DataStore.delete(deleteSecurityField) { result in
-                    switch result {
-                    case .success:
+                Task {
+                    do {
+                        try await Amplify.DataStore.delete(deleteSecurityField)
                         completion(nil)
-                    case .failure(let error):
-                        debugPrint("Unable to delete: \(error)")
+                    } catch {
+                        debugPrint("Failed saving todo \(error)")
                         completion(.unableToDelete)
                     }
                 }

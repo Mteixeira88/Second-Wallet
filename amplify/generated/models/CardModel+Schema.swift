@@ -20,7 +20,7 @@ extension CardModel {
   public static let schema = defineSchema { model in
     let cardModel = CardModel.keys
     
-    model.pluralName = "CardModels"
+    model.syncPluralName = "CardModels"
     
     model.fields(
       .id(),

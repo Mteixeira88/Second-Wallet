@@ -1,11 +1,11 @@
 import SwiftUI
 import UIKit
 import Amplify
-import AmplifyPlugins
+import AWSDataStorePlugin
 
 @main
 struct Second_WalletApp: App {
-    @StateObject private var cardViewModel = CardsListViewModel()
+    @State private var showHome: Bool = false
     
     init() {
         configureAmplify()
@@ -13,7 +13,9 @@ struct Second_WalletApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: cardViewModel)
+            if showHome {
+                HomeView()
+            }
         }
     }
     
@@ -22,8 +24,9 @@ struct Second_WalletApp: App {
             try Amplify.add(
                 plugin: AWSDataStorePlugin(modelRegistration: AmplifyModels())
             )
-            
             try Amplify.configure()
+            
+            showHome = true
         } catch {
             fatalError("could not initialize Amplify - \(error)")
         }

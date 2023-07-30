@@ -5,11 +5,13 @@ class CardRepository: Repository {
     static let shared = CardRepository()
     
     func getAll(completion: @escaping(Result<[CardModel], RepositoryError>) -> Void) {
-        Amplify.DataStore.query(CardModel.self) { result in
-            switch result {
-            case .success(let cards):
-                completion(.success(cards))
-            case .failure(let error):
+        
+        Task {
+            
+            do {
+                let result = try await Amplify.DataStore.query(CardModel.self)
+                completion(.success(result))
+            } catch {
                 debugPrint("Failed getting all because of: \(error)")
                 completion(.failure(RepositoryError.unableToGetAll))
             }
@@ -20,17 +22,18 @@ class CardRepository: Repository {
         identifier: String,
         completion: @escaping(Result<CardModel, RepositoryError>) -> Void
     ) {
-        Amplify.DataStore.query(CardModel.self, byId: identifier) { result in
-            switch result {
-            case .success(let card):
-                guard let card = card else {
-                    debugPrint("Failed getting the card \(identifier)")
+        
+        Task {
+            
+            do {
+                guard let result = try await Amplify.DataStore.query(CardModel.self, byId: identifier) else {
+                    completion(.failure(RepositoryError.unableToGetAll))
                     return
                 }
-                completion(.success(card))
-            case .failure(let error):
-                debugPrint("Failed getting the card \(identifier) because of: \(error)")
-                completion(.failure(RepositoryError.unableToGetOne))
+                completion(.success(result))
+            } catch {
+                debugPrint("Failed getting all because of: \(error)")
+                completion(.failure(RepositoryError.unableToGetAll))
             }
         }
     }
@@ -39,14 +42,14 @@ class CardRepository: Repository {
         _ model: CardModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
-        Amplify.DataStore.save(model) { (result) in
-            switch result {
-            case .success:
+        
+        Task {
+            do {
+                try await Amplify.DataStore.save(model)
                 completion(nil)
-            case .failure(let error):
+            } catch {
                 debugPrint("Failed saving todo \(error)")
                 completion(.unableToCreate)
-                
             }
         }
     }
@@ -55,12 +58,13 @@ class CardRepository: Repository {
         _ model: CardModel,
         completion: @escaping(RepositoryError?) -> Void
     ) {
-        Amplify.DataStore.save(model, where: CardModel.keys.id.eq(model.id)) { (result) in
-            switch result {
-            case .success:
+        
+        Task {
+            do {
+                try await Amplify.DataStore.save(model, where: CardModel.keys.id.eq(model.id))
                 completion(nil)
-            case .failure(let error):
-                debugPrint("Failed updating todo \(error)")
+            } catch {
+                debugPrint("Failed saving todo \(error)")
                 completion(.unableToUpdate)
             }
         }
@@ -79,12 +83,12 @@ class CardRepository: Repository {
                     return
                 }
                 
-                Amplify.DataStore.delete(deletedCard) { result in
-                    switch result {
-                    case .success:
+                Task {
+                    do {
+                        try await Amplify.DataStore.delete(deletedCard)
                         completion(nil)
-                    case .failure(let error):
-                        debugPrint("Unable to delete: \(error)")
+                    } catch {
+                        debugPrint("Failed saving todo \(error)")
                         completion(.unableToDelete)
                     }
                 }

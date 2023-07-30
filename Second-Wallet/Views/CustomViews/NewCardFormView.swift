@@ -1,5 +1,4 @@
 import SwiftUI
-import Introspect
 
 struct NewCardFormView: View {
     @ObservedObject var viewModel: NewCardViewModel

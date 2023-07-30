@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,8 +39,18 @@
 		27D0469A24D31D190085E8FF /* AddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0469924D31D190085E8FF /* AddNewCard.swift */; };
 		27D046A024D365F50085E8FF /* NewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0469F24D365F50085E8FF /* NewCardViewModel.swift */; };
 		27E0F9C324DAF6BE006593E5 /* SecurityFieldRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F9C224DAF6BE006593E5 /* SecurityFieldRepository.swift */; };
+		420258D72A76DE55002B9117 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 420258D62A76DE55002B9117 /* Amplify */; };
+		420258D92A76DE55002B9117 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258D82A76DE55002B9117 /* AWSAPIPlugin */; };
+		420258DB2A76DE55002B9117 /* AWSCloudWatchLoggingPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258DA2A76DE55002B9117 /* AWSCloudWatchLoggingPlugin */; };
+		420258DD2A76DE55002B9117 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258DC2A76DE55002B9117 /* AWSCognitoAuthPlugin */; };
+		420258DF2A76DE55002B9117 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258DE2A76DE55002B9117 /* AWSDataStorePlugin */; };
+		420258E12A76DE55002B9117 /* AWSLocationGeoPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258E02A76DE55002B9117 /* AWSLocationGeoPlugin */; };
+		420258E32A76DE55002B9117 /* AWSPinpointAnalyticsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258E22A76DE55002B9117 /* AWSPinpointAnalyticsPlugin */; };
+		420258E52A76DE55002B9117 /* AWSPinpointPushNotificationsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258E42A76DE55002B9117 /* AWSPinpointPushNotificationsPlugin */; };
+		420258E72A76DE55002B9117 /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 420258E62A76DE55002B9117 /* AWSPluginsCore */; };
+		420258E92A76DE55002B9117 /* AWSPredictionsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258E82A76DE55002B9117 /* AWSPredictionsPlugin */; };
+		420258EB2A76DE55002B9117 /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 420258EA2A76DE55002B9117 /* AWSS3StoragePlugin */; };
 		4D273B4778734E74BF8CFD69 /* SecureFieldModel+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */; };
-		65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */; };
 		96F36B9DF7A54205B7705441 /* SecureFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */; };
 		AB92BFBC12CC44C69C9B9D6E /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E543E81CB32847F7BBF667BC /* amplifyconfiguration.json */; };
 		C55572CDE62F4739A7A5FFBC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */; };
@@ -68,7 +78,6 @@
 /* Begin PBXFileReference section */
 		08024ECC15B140B7A54521A9 /* SecureFieldModel.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SecureFieldModel.swift; path = amplify/generated/models/SecureFieldModel.swift; sourceTree = "<group>"; };
 		081AF1E605270C6DDF707486 /* Pods_Second_WalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_WalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		09F15E1A35F34C60BED9A2F4 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		271D987624D4924900722A19 /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
 		2748936924DCB8E9005FBE1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -106,16 +115,11 @@
 		27D0469924D31D190085E8FF /* AddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCard.swift; sourceTree = "<group>"; };
 		27D0469F24D365F50085E8FF /* NewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewModel.swift; sourceTree = "<group>"; };
 		27E0F9C224DAF6BE006593E5 /* SecurityFieldRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityFieldRepository.swift; sourceTree = "<group>"; };
-		2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet.release.xcconfig"; path = "Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet.release.xcconfig"; sourceTree = "<group>"; };
 		3D503985F6C94BF8AC5E8E58 /* CardModel+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "CardModel+Schema.swift"; path = "amplify/generated/models/CardModel+Schema.swift"; sourceTree = "<group>"; };
-		3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-WalletTests.release.xcconfig"; path = "Target Support Files/Pods-Second-WalletTests/Pods-Second-WalletTests.release.xcconfig"; sourceTree = "<group>"; };
-		4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F9DC71086054E169F8389E9 /* CardModel.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = amplify/generated/models/CardModel.swift; sourceTree = "<group>"; };
 		70E122B9252CAD5A004911BB /* amplifytools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = SOURCE_ROOT; };
 		70F872A5F29077C815C1A2DB /* Pods_Second_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		775754179ED14C73BBC4721C /* schema.graphql */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/amplifyDatasource/schema.graphql; sourceTree = "<group>"; };
-		8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-Wallet-Second-WalletUITests.release.xcconfig"; path = "Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A2BF34F140AA6CC406BF1B10 /* Pods-Second-WalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-WalletTests.debug.xcconfig"; path = "Target Support Files/Pods-Second-WalletTests/Pods-Second-WalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5EDD035D03664AF3E493729 /* Pods_Second_Wallet_Second_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_Wallet_Second_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4767FEB92A14C7F9A9149BD /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
 		C80BFEBD09154622A0D88CD7 /* SecureFieldModel+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "SecureFieldModel+Schema.swift"; path = "amplify/generated/models/SecureFieldModel+Schema.swift"; sourceTree = "<group>"; };
@@ -127,7 +131,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65FD8FC06F22B865A77F9327 /* Pods_Second_Wallet.framework in Frameworks */,
+				420258E92A76DE55002B9117 /* AWSPredictionsPlugin in Frameworks */,
+				420258E12A76DE55002B9117 /* AWSLocationGeoPlugin in Frameworks */,
+				420258D92A76DE55002B9117 /* AWSAPIPlugin in Frameworks */,
+				420258E72A76DE55002B9117 /* AWSPluginsCore in Frameworks */,
+				420258D72A76DE55002B9117 /* Amplify in Frameworks */,
+				420258E52A76DE55002B9117 /* AWSPinpointPushNotificationsPlugin in Frameworks */,
+				420258EB2A76DE55002B9117 /* AWSS3StoragePlugin in Frameworks */,
+				420258DB2A76DE55002B9117 /* AWSCloudWatchLoggingPlugin in Frameworks */,
+				420258DF2A76DE55002B9117 /* AWSDataStorePlugin in Frameworks */,
+				420258DD2A76DE55002B9117 /* AWSCognitoAuthPlugin in Frameworks */,
+				420258E32A76DE55002B9117 /* AWSPinpointAnalyticsPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +194,6 @@
 				27C886B824D19A5C000AD21A /* Second-WalletTests */,
 				27C886C324D19A5C000AD21A /* Second-WalletUITests */,
 				27C886A524D19A5B000AD21A /* Products */,
-				6B851F9A1D8A2E33BD72EF57 /* Pods */,
 				5CB1DE0648A923F1AC962D01 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -337,19 +350,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6B851F9A1D8A2E33BD72EF57 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */,
-				2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */,
-				4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */,
-				8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */,
-				A2BF34F140AA6CC406BF1B10 /* Pods-Second-WalletTests.debug.xcconfig */,
-				3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8B4DE6B8F2554A419835946B /* AmplifyModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,18 +370,29 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C886C924D19A5C000AD21A /* Build configuration list for PBXNativeTarget "Second-Wallet" */;
 			buildPhases = (
-				16E727383AE4506444C90ACD /* [CP] Check Pods Manifest.lock */,
 				27C886D224D19AB1000AD21A /* Run Amplify Tools */,
 				27C886A024D19A5B000AD21A /* Sources */,
 				27C886A124D19A5B000AD21A /* Frameworks */,
 				27C886A224D19A5B000AD21A /* Resources */,
-				6EC1E470A606661992109BF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Second-Wallet";
+			packageProductDependencies = (
+				420258D62A76DE55002B9117 /* Amplify */,
+				420258D82A76DE55002B9117 /* AWSAPIPlugin */,
+				420258DA2A76DE55002B9117 /* AWSCloudWatchLoggingPlugin */,
+				420258DC2A76DE55002B9117 /* AWSCognitoAuthPlugin */,
+				420258DE2A76DE55002B9117 /* AWSDataStorePlugin */,
+				420258E02A76DE55002B9117 /* AWSLocationGeoPlugin */,
+				420258E22A76DE55002B9117 /* AWSPinpointAnalyticsPlugin */,
+				420258E42A76DE55002B9117 /* AWSPinpointPushNotificationsPlugin */,
+				420258E62A76DE55002B9117 /* AWSPluginsCore */,
+				420258E82A76DE55002B9117 /* AWSPredictionsPlugin */,
+				420258EA2A76DE55002B9117 /* AWSS3StoragePlugin */,
+			);
 			productName = "Second-Wallet";
 			productReference = 27C886A424D19A5B000AD21A /* Second-Wallet.app */;
 			productType = "com.apple.product-type.application";
@@ -431,8 +442,9 @@
 		27C8869C24D19A5B000AD21A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					27C886A324D19A5B000AD21A = {
 						CreatedOnToolsVersion = 12.0;
@@ -457,6 +469,9 @@
 				"pt-PT",
 			);
 			mainGroup = 27C8869B24D19A5B000AD21A;
+			packageReferences = (
+				420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */,
+			);
 			productRefGroup = 27C886A524D19A5B000AD21A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -515,28 +530,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet-Second-WalletUITests/Pods-Second-Wallet-Second-WalletUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		16E727383AE4506444C90ACD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Second-Wallet-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		17CAE468E386F028A105A94A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,23 +569,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/AmplifyTools/amplify-tools.sh\"\n";
-		};
-		6EC1E470A606661992109BF7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Second-Wallet/Pods-Second-Wallet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		9EC354A57B2ABFAF65339EAA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -819,7 +795,6 @@
 		};
 		27C886CA24D19A5C000AD21A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 088364D8A2077D155B772FAC /* Pods-Second-Wallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -829,7 +804,7 @@
 				DEVELOPMENT_TEAM = U5QL3W6RAW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Second-Wallet/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -847,7 +822,6 @@
 		};
 		27C886CB24D19A5C000AD21A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A3821F3918CDD5780A95A27 /* Pods-Second-Wallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -857,7 +831,7 @@
 				DEVELOPMENT_TEAM = U5QL3W6RAW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Second-Wallet/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -875,7 +849,6 @@
 		};
 		27C886CD24D19A5C000AD21A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2BF34F140AA6CC406BF1B10 /* Pods-Second-WalletTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -898,7 +871,6 @@
 		};
 		27C886CE24D19A5C000AD21A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F93891C4088ED693006BF9E /* Pods-Second-WalletTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -921,7 +893,6 @@
 		};
 		27C886D024D19A5C000AD21A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4081EAA59F344728591A961A /* Pods-Second-Wallet-Second-WalletUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -942,7 +913,6 @@
 		};
 		27C886D124D19A5C000AD21A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F4BA73B750607C5A2C8F921 /* Pods-Second-Wallet-Second-WalletUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1001,6 +971,75 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		420258D62A76DE55002B9117 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = Amplify;
+		};
+		420258D82A76DE55002B9117 /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSAPIPlugin;
+		};
+		420258DA2A76DE55002B9117 /* AWSCloudWatchLoggingPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSCloudWatchLoggingPlugin;
+		};
+		420258DC2A76DE55002B9117 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		420258DE2A76DE55002B9117 /* AWSDataStorePlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSDataStorePlugin;
+		};
+		420258E02A76DE55002B9117 /* AWSLocationGeoPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSLocationGeoPlugin;
+		};
+		420258E22A76DE55002B9117 /* AWSPinpointAnalyticsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSPinpointAnalyticsPlugin;
+		};
+		420258E42A76DE55002B9117 /* AWSPinpointPushNotificationsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSPinpointPushNotificationsPlugin;
+		};
+		420258E62A76DE55002B9117 /* AWSPluginsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSPluginsCore;
+		};
+		420258E82A76DE55002B9117 /* AWSPredictionsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSPredictionsPlugin;
+		};
+		420258EA2A76DE55002B9117 /* AWSS3StoragePlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 420395262A76DD5A0073FA32 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSS3StoragePlugin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27C8869C24D19A5B000AD21A /* Project object */;
 }

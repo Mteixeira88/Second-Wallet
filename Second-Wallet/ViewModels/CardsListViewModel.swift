@@ -1,4 +1,6 @@
 import Amplify
+import Foundation
+import UIKit
 
 class CardsListViewModel: ObservableObject {
     @Published var cards: [CardModel]
@@ -7,6 +9,7 @@ class CardsListViewModel: ObservableObject {
     init(cards: [CardModel] = []) {
         self.cards = cards
         self.filterCard = cards
+        
         CardRepository.shared.getAll { [weak self] result in
             switch result {
             case .success(let cards):
@@ -35,15 +38,15 @@ class CardsListViewModel: ObservableObject {
                     value: secureField.value,
                     card: card
                 )
-                Amplify.DataStore.save(saveSecureField) { (result) in
-                    switch result {
-                    case .success:
+                Task {
+                    do {
+                        try await Amplify.DataStore.save(saveSecureField)
                         if index == secureFields.count - 1 {
-                            self.cards[defaultPosition].secureFields = List(secureFields)
+                            self.cards[defaultPosition].secureFields = List(elements: secureFields)
                             self.filterCard = self.cards
                         }
-                    case .failure(let error):
-                        fatalError("Failed saving Secure Field \(error)")
+                    } catch {
+                        print(error)
                     }
                 }
             }
@@ -90,7 +93,7 @@ class CardsListViewModel: ObservableObject {
     
     func updateSecureFields(at index: Int,on indexCard: Int, with secureFields: [SecureFieldModel]) {
         if index == secureFields.count - 1 {
-            cards[indexCard].secureFields = List(secureFields)
+            cards[indexCard].secureFields = List(elements: secureFields)
             filterCard = cards
         }
     }
